@@ -969,7 +969,7 @@ PrefabInstance:
         type: 3}
       propertyPath: EnemyWaves.Array.data[0].enemySpawns.Array.data[0].enemy
       value: 
-      objectReference: {fileID: 3697426553599540029, guid: 0d97a740b5eb09c4c97077933e330069,
+      objectReference: {fileID: 3697426553599540029, guid: 04a4d7a9b046d4847ae8e55e74b26a18,
         type: 3}
     - target: {fileID: 2789320161115064299, guid: 14c62279b37e6c24d81d4bce87c6ded6,
         type: 3}
@@ -2703,6 +2703,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: TutorialManager
       objectReference: {fileID: 0}
+    - target: {fileID: 3297719557232102739, guid: bcda26b99c0287640b39ec800a254357,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bcda26b99c0287640b39ec800a254357, type: 3}
 --- !u!1001 &4355221211300794413
@@ -2771,6 +2776,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Pointer
+      objectReference: {fileID: 0}
+    - target: {fileID: 4355221211025752531, guid: 5aaadfd76d30c1f408d3e0b5815a5ae1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5aaadfd76d30c1f408d3e0b5815a5ae1, type: 3}
@@ -3603,6 +3613,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PointerPlacer
+      objectReference: {fileID: 0}
+    - target: {fileID: 7153450701211173461, guid: 60e9b80035405034fb5e904b07996c61,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60e9b80035405034fb5e904b07996c61, type: 3}

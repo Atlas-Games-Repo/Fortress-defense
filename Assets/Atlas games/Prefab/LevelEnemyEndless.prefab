@@ -44,7 +44,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1480071122214238694}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 51dc5e60fa631ee4b8ccd071ae8debee, type: 3}
   m_Name: 
@@ -61,7 +61,129 @@ MonoBehaviour:
   - {fileID: 242366090253687157}
   - {fileID: 2329159576667478972}
   - {fileID: 8973944176769065048}
-  EnemyWaves: []
+  EnemyWaves:
+  - wait: 0
+    enemySpawns:
+    - wait: 0
+      enemy: {fileID: 3697426553599540029, guid: 6456602a00499d64e8811a2e368c922c,
+        type: 3}
+      numberEnemy: 20
+      rate: 1
+      customHealth: 0
+      customSpeed: 0
+      customAttackDmg: 0
+      boosType: 0
+      BossScale: 1.0001
+      BossMinExp: 25
+      BossMaxExp: 50
+    - wait: 0
+      enemy: {fileID: 3697426553599540029, guid: ceeadeccd9d94814091316c56a87ef32,
+        type: 3}
+      numberEnemy: 22
+      rate: 1
+      customHealth: 0
+      customSpeed: 0
+      customAttackDmg: 0
+      boosType: 0
+      BossScale: 1.001
+      BossMinExp: 25
+      BossMaxExp: 50
+    - wait: 13
+      enemy: {fileID: 3697426553599540029, guid: 5432430d0f93b2a47b8152e2915014c1,
+        type: 3}
+      numberEnemy: 18
+      rate: 1
+      customHealth: 0
+      customSpeed: 0
+      customAttackDmg: 0
+      boosType: 0
+      BossScale: 1.0001
+      BossMinExp: 25
+      BossMaxExp: 50
+    - wait: 0
+      enemy: {fileID: 3697426553599540029, guid: 4a7f9729baaa5af40b22163e4d610554,
+        type: 3}
+      numberEnemy: 22
+      rate: 1
+      customHealth: 0
+      customSpeed: 0
+      customAttackDmg: 0
+      boosType: 0
+      BossScale: 1.001
+      BossMinExp: 25
+      BossMaxExp: 50
+    - wait: 16
+      enemy: {fileID: 3697426553599540029, guid: c843265a8e2a9aa4ab8c86fd025eed82,
+        type: 3}
+      numberEnemy: 22
+      rate: 1
+      customHealth: 0
+      customSpeed: 0
+      customAttackDmg: 0
+      boosType: 0
+      BossScale: 1.5
+      BossMinExp: 99
+      BossMaxExp: 90
+    - wait: 17
+      enemy: {fileID: 3697426553599540029, guid: 8c32dd031b866d5429bb9c55ce69a5e3,
+        type: 3}
+      numberEnemy: 14
+      rate: 1
+      customHealth: 0
+      customSpeed: 0
+      customAttackDmg: 0
+      boosType: 0
+      BossScale: 1.0001
+      BossMinExp: 25
+      BossMaxExp: 50
+    - wait: 18
+      enemy: {fileID: 3697426553599540029, guid: 0014a555699f68f4ab300b16913c9299,
+        type: 3}
+      numberEnemy: 22
+      rate: 1
+      customHealth: 0
+      customSpeed: 0
+      customAttackDmg: 0
+      boosType: 0
+      BossScale: 2
+      BossMinExp: 25
+      BossMaxExp: 50
+    - wait: 0
+      enemy: {fileID: 3697426553599540029, guid: e5ef7b2b831f2d842899a30415c711f8,
+        type: 3}
+      numberEnemy: 22
+      rate: 1
+      customHealth: 0
+      customSpeed: 0
+      customAttackDmg: 0
+      boosType: 0
+      BossScale: 1.0001
+      BossMinExp: 25
+      BossMaxExp: 50
+    - wait: 20
+      enemy: {fileID: 3697426553599540029, guid: ef7dd28ac183749499a85191ef6884d3,
+        type: 3}
+      numberEnemy: 22
+      rate: 1
+      customHealth: 0
+      customSpeed: 0
+      customAttackDmg: 0
+      boosType: 0
+      BossScale: 1.02
+      BossMinExp: 25
+      BossMaxExp: 50
+    - wait: 0
+      enemy: {fileID: 3697426553599540029, guid: 0870019d22d5e6b4fa78aa1d1c16403a,
+        type: 3}
+      numberEnemy: 1
+      rate: 1
+      customHealth: 1600
+      customSpeed: 0
+      customAttackDmg: 70
+      boosType: 1
+      BossScale: 1.5
+      BossMinExp: 25
+      BossMaxExp: 50
   bossManeger: {fileID: 0}
   listEnemySpawned: []
   totalEnemy: 0
