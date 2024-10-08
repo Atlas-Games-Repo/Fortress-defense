@@ -68,6 +68,19 @@ public class AffectZone : MonoBehaviour
     // Start is called before the first frame update
     public List<Enemy> listEnemyInZone;
     AffectZoneType zoneType;
+
+
+    [Header("Armagdon")] public GameObject fireBall;
+    public float aramgdonFallTime = 1.3f;
+    private GameObject[] _spawnedArmagdons;
+    public Vector2[] fireBallSpawnOffset;
+    public AudioClip impaceSfx;
+    public float offset;
+    public float fireBallSpeed = 2f;
+
+    [Header("Fortress wall")] public GameObject defenseWall;
+    public Transform wallPosition;
+    public int wallHealth = 150;
     public AffectZoneType getAffectZoneType
     {
         get { return zoneType; }
@@ -133,7 +146,7 @@ public class AffectZone : MonoBehaviour
             FloatingTextManager.Instance.ShowText("-" + XPConsume + " XP", Vector2.up * 1, Color.red, transform.position,40);
         }
     }
-
+    
 
     IEnumerator ActiveCo()
     {
@@ -169,8 +182,8 @@ public class AffectZone : MonoBehaviour
                             case AffectZoneType.Fire:
                                 target.TakeDamage(fireDamage, Vector2.zero, target.gameObject.transform.position,
                                     gameObject);
-                                target.Freeze(fireAffectTime, gameObject);
-                                if (darkFX)
+                               // target.Freeze(fireAffectTime, gameObject);
+                                if (fireFX)
                                 {
                                     var _fx = SpawnSystemHelper.GetNextObject(fireFX, true);
                                     _fx.GetComponent<AutoDestroy>().Init(fireAffectTime);
@@ -180,7 +193,6 @@ public class AffectZone : MonoBehaviour
                                 SoundManager.PlaySfx(fireSound);
                                 yield return new WaitForSeconds(Random.Range(0.1f, 0.2f));
                                 break;
-
                             case AffectZoneType.Frozen:
                                 target.TakeDamage(frozenDamage, Vector2.zero, target.gameObject.transform.position,
                                     gameObject);
@@ -271,7 +283,9 @@ public class AffectZone : MonoBehaviour
                                                                     SoundManager.PlaySfx(aeroSound);
                                 // code for magnet
                                 break;
-
+                            case AffectZoneType.DefenseWall:
+                                ActivateDefenseWall();
+                                break;
                         }
                     }
                 }
@@ -300,6 +314,7 @@ public class AffectZone : MonoBehaviour
                 case AffectZoneType.Aero:
                     yield return new WaitForSeconds(aeroRate);
                     break;
+                
             }
 
             yield return null;
@@ -394,6 +409,33 @@ public class AffectZone : MonoBehaviour
         // Debug.LogError(collision.gameObject + "list: " + listEnemyInZone.Count);
     }
 
+    public void ActivateArmagdon()
+    {
+        Vector2 firstOffsetTarget = new Vector2();
+        for (int i = 0; i < fireBallSpawnOffset.Length; i++)
+        {
+            Vector2 newTarget = new Vector2();
+            if (i == 0)
+            {
+                firstOffsetTarget = fireBallSpawnOffset[i];
+            }
+            else
+            {
+                newTarget = fireBallSpawnOffset[i] - firstOffsetTarget;
+            }
+            var spawnedFireBall = SpawnSystemHelper.GetNextObject(fireBall, true);
+            spawnedFireBall.transform.position = (Vector2)transform.position + fireBallSpawnOffset[i] + firstOffsetTarget;
+            StartCoroutine(ThrowFireBall(spawnedFireBall.gameObject, spawnedFireBall.transform.position, (Vector2)transform.position + newTarget));
+        }
+      
+    }
+
+    public void ActivateDefenseWall()
+    {
+        var newWall = SpawnSystemHelper.GetNextObject(defenseWall);
+        newWall.transform.position = wallPosition.position;
+        newWall.GetComponent<DefenseWall>().Init(wallHealth,GetComponent<AffectZone>());
+    }
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
@@ -406,5 +448,33 @@ public class AffectZone : MonoBehaviour
             }
         }
         // Debug.LogError(collision.gameObject);
+    }
+    private IEnumerator ThrowFireBall(GameObject fireBall, Vector3 startPos, Vector3 target)
+    {
+        fireBall.transform.position = startPos;
+       
+       
+
+        while (Vector3.Distance(fireBall.transform.position, target) > 0.01f)
+        {
+            Vector3 direction = (target - fireBall.transform.position).normalized;
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+
+            angle += offset;
+
+            fireBall.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+            fireBall.transform.Translate(direction * fireBallSpeed * Time.deltaTime,Space.World);
+           print("hey");
+            yield return null;
+        }
+
+        Destroy(fireBall);
+        GameObject fireFx = SpawnSystemHelper.GetNextObject(fireFX, true);
+        fireFx.GetComponent<AutoDestroy>().Init(fireAffectTime);
+        fireFx.transform.position = target ;
+        fireBall.transform.position = target;
+        SoundManager.PlaySfx(impaceSfx);
+        Active(AffectZoneType.Fire);
+        CameraShake.instance.StartShake(0.1f, 0.1f);
     }
 }

@@ -129,11 +129,11 @@ public class EnemyRangeAttack : MonoBehaviour
 
             float shootAngle = 0;
             shootAngle = isFacingRight ? 0 : 180;
-
+            
             var projectile = SpawnSystemHelper.GetNextObject(bullet.gameObject, false).GetComponent<Projectile>();
             projectile.transform.position = shootingPoint != null ? shootingPoint.position : firePosition();
             projectile.transform.rotation = Quaternion.Euler(0, 0, shootAngle);
-
+            projectile.LayerCollision = enemyLayer;
             Vector3 _dir;
             if (aimTarget)
             {

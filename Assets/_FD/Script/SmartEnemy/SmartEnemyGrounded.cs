@@ -8,6 +8,7 @@ using UnityEngine.Rendering;
 [RequireComponent(typeof(Controller2D))]
 public class SmartEnemyGrounded : Enemy, ICanTakeDamage, IGetTouchEvent
 {
+    [HideInInspector] public bool isPet;
     public bool isSocking { get; set; }
     public bool isDead { get; set; }
 
@@ -54,6 +55,7 @@ public class SmartEnemyGrounded : Enemy, ICanTakeDamage, IGetTouchEvent
     public string warriorTag = "Warrior";
     private float _zPos;
     public GameObject shadow;
+    private float _initialMoveSpeed;
     IEnumerator Climb()
     {
         yield return new WaitForSeconds(climbingTime);
@@ -169,7 +171,6 @@ public class SmartEnemyGrounded : Enemy, ICanTakeDamage, IGetTouchEvent
       
 
         base.Start();
-
         controller = GetComponent<Controller2D>();
         _direction = isFacingRight() ? Vector2.right : Vector2.left;
 
@@ -210,7 +211,10 @@ public class SmartEnemyGrounded : Enemy, ICanTakeDamage, IGetTouchEvent
                 rangeAttack.damage = upgradedCharacterID.UpgradeRangeDamage;
             }
         }
+        _initialMoveSpeed = moveSpeed;
     }
+
+
 
     public override void Update()
     {
@@ -222,7 +226,8 @@ public class SmartEnemyGrounded : Enemy, ICanTakeDamage, IGetTouchEvent
             velocity.x = 0;
             return;
         }
-
+        
+        
         if (checkTarget.CheckTarget(isFacingRight() ? 1 : -1))
             DetectPlayer(delayChasePlayerWhenDetect);
     }
@@ -293,6 +298,11 @@ public class SmartEnemyGrounded : Enemy, ICanTakeDamage, IGetTouchEvent
         if (isPlaying && isPlayerDetected && allowCheckAttack && enemyEffect != ENEMYEFFECT.FREEZE)
         {
             CheckAttack();
+        }
+        // set slow down rate here : 
+        if (isPet)
+        {
+            moveSpeed = _initialMoveSpeed * GlobalValue.SlowDownRate;
         }
     }
 
@@ -568,5 +578,29 @@ public class SmartEnemyGrounded : Enemy, ICanTakeDamage, IGetTouchEvent
         {
             archer.GetComponent<Player_Archer>().manual_targeted_enemy = this.gameObject;
         }
+    }
+
+    private float _mainMoveSpeed;
+    private Transform _enemyParent;
+
+    public void HitLog(float rollBackTime, Transform logTransform)
+    {
+        print("hello");
+        StartCoroutine(RollBackForLog(rollBackTime, logTransform));
+    }
+    IEnumerator RollBackForLog(float rollBackTime,Transform logTransform)
+    {
+        yield return new WaitForSeconds(0.01f);
+        if (transform.parent)
+        {
+            _enemyParent = transform.parent;
+        }
+
+        _mainMoveSpeed = moveSpeed;
+        moveSpeed = 0;
+        transform.SetParent(logTransform);
+        yield return new WaitForSeconds(rollBackTime);
+        transform.SetParent(_enemyParent);
+        moveSpeed = _mainMoveSpeed;
     }
 }

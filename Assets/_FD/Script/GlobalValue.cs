@@ -38,13 +38,38 @@ public class GlobalValue : MonoBehaviour
         get { return PlayerPrefs.GetInt("lastDayShowNativeAd1", 0); }
         set { PlayerPrefs.SetInt("lastDayShowNativeAd1", value); }
     }
+
+    
+    
     public static int lastDayShowNativeAd2
     {
         get { return PlayerPrefs.GetInt("lastDayShowNativeAd2", 0); }
         set { PlayerPrefs.SetInt("lastDayShowNativeAd2", value); }
     }
+    public static string inventoryMagic
+    {
+        get { return PlayerPrefs.GetString("InventoryMagic", "0,1,2"); }
+        set { PlayerPrefs.SetString("InventoryMagic", value); }
+    }
 
-
+    public static string inventoryItem
+    {
+        get { return PlayerPrefs.GetString("InventoryItem", "3,4,5"); }
+        set { PlayerPrefs.SetString("InventoryItem", value); }
+    }
+    
+    public static string inventoryPets
+    {
+        get { return PlayerPrefs.GetString("InventoryPet", "23"); }
+        set { PlayerPrefs.SetString("InventoryPet", value); }
+    }
+    
+    public static string inventoryTowers
+    {
+        get { return PlayerPrefs.GetString("inventoryTowers", "7"); }
+        set { PlayerPrefs.SetString("inventoryTowers", value); }
+    }
+    
     public static int GetTutorialState(string tutorialName)
     {
         return PlayerPrefs.GetInt("tutorial :"+tutorialName, 0);
@@ -59,6 +84,19 @@ public class GlobalValue : MonoBehaviour
         set { PlayerPrefs.SetInt("lastDayShowNativeAd3", value); }
     }
 
+    public static int GetChosenShopItem(string itemName)
+    {
+        return PlayerPrefs.GetInt(itemName);
+    }
+
+    public static void IncrementChosenShopItem(string itemName)
+    {
+        PlayerPrefs.SetInt(itemName,GetChosenShopItem(itemName) + 1);
+    }
+    public static void DecrementChosenShopItem(string itemName)
+    {
+        PlayerPrefs.SetInt(itemName,GetChosenShopItem(itemName) - 1);
+    }
 
 
 
@@ -96,24 +134,34 @@ public class GlobalValue : MonoBehaviour
         get { return PlayerPrefs.GetInt("ItemPoison", 3); }
         set { PlayerPrefs.SetInt("ItemPoison", value); }
     }
-    public static bool DoubleXp
+
+    public static void SetItemState(bool state,string itemName)
     {
-        get
-        {
-            return PlayerPrefs.GetInt("Night") == 1;
-        }
-        set
-        {
-            PlayerPrefs.SetInt("Night", value ? 1 : 0 );
-        }
+        PlayerPrefs.SetInt(itemName + "activation state", state ? 1 : 0);
     }
+
+    public static bool GetItemState(string itemName)
+    {
+        return PlayerPrefs.GetInt(itemName + "activation state") == 1 ? true : false;
+    }
+   // public static bool DoubleXp
+   // {
+   //     get
+   //     {
+   //         return PlayerPrefs.GetInt("Night") == 1;
+   //     }
+   //     set
+   //     {
+   //         PlayerPrefs.SetInt("Night", value ? 1 : 0 );
+   //     }
+   // }
     public static int ItemFreeze
     {
         get { return PlayerPrefs.GetInt("ItemFreeze", 3); }
         set { PlayerPrefs.SetInt("ItemFreeze", value); }
     }
 
-
+   
 
     public static int UpgradeStrongWall
     {
@@ -121,17 +169,36 @@ public class GlobalValue : MonoBehaviour
         set { PlayerPrefs.SetInt("UpgradeStrongWall", value); }
     }
     
-    public static string DoubleXpActivationTime
+  //  public static string DoubleXpActivationTime
+  //  {
+  //      get { return PlayerPrefs.GetString("DoubleXp1HourDurationActivationTime", "1970-01-01T00:00:01"); }
+  //      set { PlayerPrefs.SetString("DoubleXp1HourDurationActivationTime", value); }
+  //  }
+
+    public static string ItemOpened(string itemName)
     {
-        get { return PlayerPrefs.GetString("DoubleXp1HourDurationActivationTime", "1970-01-01T00:00:01"); }
-        set { PlayerPrefs.SetString("DoubleXp1HourDurationActivationTime", value); }
+        return PlayerPrefs.GetString(itemName, "1970-01-01T00:00:01");
     }
 
-    public static int DoubleXPDuration
+    public static void SetItemActivationTime(string itemName, string value)
     {
-        get { return PlayerPrefs.GetInt("DoubleXPDuration", 0); }
-        set { PlayerPrefs.SetInt("DoubleXPDuration", value); }
+        PlayerPrefs.SetString(itemName, value);
     }
+
+    public static int ItemDuration(string itemName)
+    {
+        return PlayerPrefs.GetInt(itemName + "duration", 0);
+    }
+
+    public static void SetItemDuration(string itemName, int duration)
+    {
+        PlayerPrefs.SetInt(itemName + "duration",duration);
+    }
+  //  public static int DoubleXPDuration
+  //  {
+  //      get { return PlayerPrefs.GetInt("DoubleXPDuration", 0); }
+  //      set { PlayerPrefs.SetInt("DoubleXPDuration", value); }
+  //  }
   //  public static int DoubleXpActive
   //  {
   //      get { return PlayerPrefs.GetInt("DoubleXpActive", 0); }
@@ -141,6 +208,18 @@ public class GlobalValue : MonoBehaviour
     {
         get { return PlayerPrefs.GetFloat("StrongWallExtra", 0); }
         set { PlayerPrefs.SetFloat("StrongWallExtra", value); }
+    }
+
+    public static float SlowDownRate
+    {
+        get { return PlayerPrefs.GetFloat("SlowDownRate", 1f); }
+        set { PlayerPrefs.SetFloat("SlowDownRate", value); }
+    }
+
+    public static float AttackDamageRate
+    {
+        get { return PlayerPrefs.GetFloat("AttackDamageRate", 1f); }
+        set { PlayerPrefs.SetFloat("AttackDamageRate", value); }
     }
     public static float MainTimeDifference
     {

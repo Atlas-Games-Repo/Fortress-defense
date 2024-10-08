@@ -49,9 +49,9 @@ GameObject:
   - component: {fileID: -4311634429453305345}
   - component: {fileID: 1912531194315397297}
   - component: {fileID: -2827929167970686724}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: '[ Enemy ] 2 Mini Gunner - Range'
-  m_TagString: Untagged
+  m_TagString: Warrior
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -187,7 +187,7 @@ MonoBehaviour:
   gravity: 35
   walkSpeed: 1.2
   attackType: 0
-  startBehavior: 3
+  startBehavior: 4
   dieBehavior: 0
   hitBehavior: 0
   spawnDelay: 1

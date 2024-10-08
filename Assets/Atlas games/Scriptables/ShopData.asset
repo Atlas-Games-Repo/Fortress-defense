@@ -1,0 +1,420 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4637a5e8a9919254aba4286e07db313c, type: 3}
+  m_Name: ShopData
+  m_EditorClassIdentifier: 
+  ShopData:
+  - itemName: Pet 1
+    itemImage: {fileID: 21300000, guid: 9f7bbe2eeaa770f41957a094b25bda9f, type: 3}
+    buttonImage: {fileID: 0}
+    itemPrice: 20
+    itemMaxValue: 20
+    hasMaxValue: 1
+    type: 0
+    purchaseType: 1
+    levelLock: 0
+    levelToUnlock: 1
+    id: 6
+    isFree: 0
+    oneTimePurchase: 1
+    pet: {fileID: 2742581098072274894, guid: e08cd14326358354b9acc253cee4fa3d, type: 3}
+    duration: 0
+  - itemName: Pet 2
+    itemImage: {fileID: 21300000, guid: 6f8cc81efc7dd6243bc3b65a8f3a85a9, type: 3}
+    buttonImage: {fileID: 0}
+    itemPrice: 20
+    itemMaxValue: 20
+    hasMaxValue: 1
+    type: 0
+    purchaseType: 1
+    levelLock: 1
+    levelToUnlock: 10
+    id: 8
+    isFree: 0
+    oneTimePurchase: 1
+    pet: {fileID: 3697426553599540029, guid: d56d2bb81ffd87a4193726091f7744ba, type: 3}
+    duration: 0
+  - itemName: Pet 3
+    itemImage: {fileID: 21300000, guid: 934303f388bbecc43a14b5016e5e92b7, type: 3}
+    buttonImage: {fileID: 0}
+    itemPrice: 20
+    itemMaxValue: 20
+    hasMaxValue: 1
+    type: 0
+    purchaseType: 1
+    levelLock: 0
+    levelToUnlock: 10
+    id: 9
+    isFree: 0
+    oneTimePurchase: 1
+    pet: {fileID: 3946748681848493890, guid: af0481cac910a774c8a6b0b4a8c19637, type: 3}
+    duration: 0
+  - itemName: Pet 3
+    itemImage: {fileID: 21300000, guid: 2ceb6dfa0a1fcc94f82a62583255215a, type: 3}
+    buttonImage: {fileID: 21300000, guid: 2ceb6dfa0a1fcc94f82a62583255215a, type: 3}
+    itemPrice: 20
+    itemMaxValue: 20
+    hasMaxValue: 1
+    type: 0
+    purchaseType: 1
+    levelLock: 0
+    levelToUnlock: 10
+    id: 10
+    isFree: 0
+    oneTimePurchase: 1
+    pet: {fileID: 3505094654918231060, guid: 93b3a96647087d54085a68ddee065188, type: 3}
+    duration: 0
+  - itemName: Poison
+    itemImage: {fileID: 21300000, guid: 9b465087201c25b4cb0a5c4616911e89, type: 3}
+    buttonImage: {fileID: 21300000, guid: 056c2fe913eea814bbd3b28ab1531a7f, type: 3}
+    itemPrice: 20
+    itemMaxValue: 20
+    hasMaxValue: 1
+    type: 2
+    purchaseType: 1
+    levelLock: 0
+    levelToUnlock: 10
+    id: 0
+    isFree: 1
+    oneTimePurchase: 0
+    pet: {fileID: 0}
+    duration: 0
+  - itemName: Lightning
+    itemImage: {fileID: 21300000, guid: e5f65e010d320e441ba7bb7c7bf2a206, type: 3}
+    buttonImage: {fileID: 21300000, guid: 8ddacbaa6ef991742bfa2b88b4380457, type: 3}
+    itemPrice: 20
+    itemMaxValue: 20
+    hasMaxValue: 1
+    type: 2
+    purchaseType: 1
+    levelLock: 0
+    levelToUnlock: 10
+    id: 1
+    isFree: 1
+    oneTimePurchase: 0
+    pet: {fileID: 0}
+    duration: 0
+  - itemName: Ice
+    itemImage: {fileID: 21300000, guid: 916efd71abde5f24eb01b4c925c1a461, type: 3}
+    buttonImage: {fileID: 21300000, guid: 558f627369c19bb439af863452fa610f, type: 3}
+    itemPrice: 20
+    itemMaxValue: 20
+    hasMaxValue: 1
+    type: 2
+    purchaseType: 1
+    levelLock: 0
+    levelToUnlock: 10
+    id: 2
+    isFree: 1
+    oneTimePurchase: 0
+    pet: {fileID: 0}
+    duration: 0
+  - itemName: Bomb
+    itemImage: {fileID: 21300000, guid: eea7432d9e164e04883293a2810f8f2c, type: 3}
+    buttonImage: {fileID: 21300000, guid: eea7432d9e164e04883293a2810f8f2c, type: 3}
+    itemPrice: 20
+    itemMaxValue: 20
+    hasMaxValue: 1
+    type: 1
+    purchaseType: 1
+    levelLock: 0
+    levelToUnlock: 10
+    id: 3
+    isFree: 0
+    oneTimePurchase: 0
+    pet: {fileID: 0}
+    duration: 0
+  - itemName: Fire Arrow
+    itemImage: {fileID: 21300000, guid: 10536ba5d7715434aa1dcd0a72a1c20b, type: 3}
+    buttonImage: {fileID: 21300000, guid: 10536ba5d7715434aa1dcd0a72a1c20b, type: 3}
+    itemPrice: 15
+    itemMaxValue: 20
+    hasMaxValue: 1
+    type: 1
+    purchaseType: 1
+    levelLock: 0
+    levelToUnlock: 10
+    id: 4
+    isFree: 0
+    oneTimePurchase: 0
+    pet: {fileID: 0}
+    duration: 0
+  - itemName: SlowDown
+    itemImage: {fileID: 21300000, guid: 8b89eceb0e0282e45b2c9d1a01551bc3, type: 3}
+    buttonImage: {fileID: 0}
+    itemPrice: 15
+    itemMaxValue: 20
+    hasMaxValue: 1
+    type: 1
+    purchaseType: 1
+    levelLock: 0
+    levelToUnlock: 10
+    id: 5
+    isFree: 0
+    oneTimePurchase: 0
+    pet: {fileID: 0}
+    duration: 0
+  - itemName: Tower
+    itemImage: {fileID: 21300000, guid: 780bd17f3d9de6347b0eb6249b2b2e69, type: 3}
+    buttonImage: {fileID: 0}
+    itemPrice: 15
+    itemMaxValue: 20
+    hasMaxValue: 1
+    type: 5
+    purchaseType: 1
+    levelLock: 0
+    levelToUnlock: 10
+    id: 7
+    isFree: 1
+    oneTimePurchase: 0
+    pet: {fileID: 0}
+    duration: 0
+  - itemName: Shield
+    itemImage: {fileID: 21300000, guid: d6b6e2b84a89c5a49aca1ebd62f97b7a, type: 3}
+    buttonImage: {fileID: 21300000, guid: d6b6e2b84a89c5a49aca1ebd62f97b7a, type: 3}
+    itemPrice: 15
+    itemMaxValue: 20
+    hasMaxValue: 1
+    type: 1
+    purchaseType: 1
+    levelLock: 0
+    levelToUnlock: 10
+    id: 11
+    isFree: 0
+    oneTimePurchase: 0
+    pet: {fileID: 0}
+    duration: 0
+  - itemName: Tower 2
+    itemImage: {fileID: 21300000, guid: ebc9712108472e9468a28fa1ce98f1c2, type: 3}
+    buttonImage: {fileID: 0}
+    itemPrice: 15
+    itemMaxValue: 20
+    hasMaxValue: 1
+    type: 5
+    purchaseType: 1
+    levelLock: 0
+    levelToUnlock: 10
+    id: 12
+    isFree: 0
+    oneTimePurchase: 1
+    pet: {fileID: 0}
+    duration: 0
+  - itemName: Tower 3
+    itemImage: {fileID: 21300000, guid: cfe5294bee5a8114e82efb97a8a1536a, type: 3}
+    buttonImage: {fileID: 0}
+    itemPrice: 15
+    itemMaxValue: 20
+    hasMaxValue: 1
+    type: 5
+    purchaseType: 1
+    levelLock: 0
+    levelToUnlock: 10
+    id: 13
+    isFree: 0
+    oneTimePurchase: 1
+    pet: {fileID: 0}
+    duration: 0
+  - itemName: Tower 4
+    itemImage: {fileID: 21300000, guid: 0c410db751870d14cb9c2c2628557df6, type: 3}
+    buttonImage: {fileID: 0}
+    itemPrice: 15
+    itemMaxValue: 20
+    hasMaxValue: 1
+    type: 5
+    purchaseType: 1
+    levelLock: 0
+    levelToUnlock: 10
+    id: 14
+    isFree: 0
+    oneTimePurchase: 1
+    pet: {fileID: 0}
+    duration: 0
+  - itemName: Cure
+    itemImage: {fileID: 21300000, guid: 8f08ae81945ba1c498420247c4a05c57, type: 3}
+    buttonImage: {fileID: 21300000, guid: 8f08ae81945ba1c498420247c4a05c57, type: 3}
+    itemPrice: 15
+    itemMaxValue: 20
+    hasMaxValue: 1
+    type: 2
+    purchaseType: 1
+    levelLock: 0
+    levelToUnlock: 10
+    id: 15
+    isFree: 0
+    oneTimePurchase: 1
+    pet: {fileID: 0}
+    duration: 0
+  - itemName: Magnet
+    itemImage: {fileID: 21300000, guid: ba385bb410fa8064eb88bc06829608d2, type: 3}
+    buttonImage: {fileID: 21300000, guid: 33242080c26e8574ab9d20a6c2c85f53, type: 3}
+    itemPrice: 15
+    itemMaxValue: 20
+    hasMaxValue: 1
+    type: 2
+    purchaseType: 1
+    levelLock: 0
+    levelToUnlock: 10
+    id: 16
+    isFree: 0
+    oneTimePurchase: 1
+    pet: {fileID: 0}
+    duration: 0
+  - itemName: Aero
+    itemImage: {fileID: 21300000, guid: df8121d4034378149a30d86521019a81, type: 3}
+    buttonImage: {fileID: 21300000, guid: df8121d4034378149a30d86521019a81, type: 3}
+    itemPrice: 15
+    itemMaxValue: 20
+    hasMaxValue: 1
+    type: 2
+    purchaseType: 1
+    levelLock: 0
+    levelToUnlock: 10
+    id: 17
+    isFree: 0
+    oneTimePurchase: 1
+    pet: {fileID: 0}
+    duration: 0
+  - itemName: Log
+    itemImage: {fileID: 21300000, guid: 55da1d7ff18c9864a8a0b7dda12ddb79, type: 3}
+    buttonImage: {fileID: 21300000, guid: 0c6b82178d13b514fbd46a0a8180e70e, type: 3}
+    itemPrice: 15
+    itemMaxValue: 20
+    hasMaxValue: 1
+    type: 1
+    purchaseType: 1
+    levelLock: 0
+    levelToUnlock: 10
+    id: 18
+    isFree: 0
+    oneTimePurchase: 0
+    pet: {fileID: 0}
+    duration: 0
+  - itemName: LightningAll
+    itemImage: {fileID: 21300000, guid: b905050555552054bbc338cb0fead686, type: 3}
+    buttonImage: {fileID: 21300000, guid: 68c34f794ff824595866971c55a8fe2e, type: 3}
+    itemPrice: 15
+    itemMaxValue: 20
+    hasMaxValue: 1
+    type: 2
+    purchaseType: 1
+    levelLock: 0
+    levelToUnlock: 10
+    id: 19
+    isFree: 0
+    oneTimePurchase: 1
+    pet: {fileID: 0}
+    duration: 0
+  - itemName: DoubleArrow
+    itemImage: {fileID: 21300000, guid: 46de0d94d79c06547bdf4b5cc4cee428, type: 3}
+    buttonImage: {fileID: 21300000, guid: 1e3b79979d2b88e41a161c998ac6f5f5, type: 3}
+    itemPrice: 15
+    itemMaxValue: 20
+    hasMaxValue: 1
+    type: 1
+    purchaseType: 1
+    levelLock: 0
+    levelToUnlock: 10
+    id: 20
+    isFree: 0
+    oneTimePurchase: 0
+    pet: {fileID: 0}
+    duration: 0
+  - itemName: FrozenArrow
+    itemImage: {fileID: 21300000, guid: f4d7c9fca7fb0d3459c8e7e63696cb49, type: 3}
+    buttonImage: {fileID: 21300000, guid: f4d7c9fca7fb0d3459c8e7e63696cb49, type: 3}
+    itemPrice: 15
+    itemMaxValue: 20
+    hasMaxValue: 1
+    type: 1
+    purchaseType: 1
+    levelLock: 0
+    levelToUnlock: 10
+    id: 21
+    isFree: 0
+    oneTimePurchase: 0
+    pet: {fileID: 0}
+    duration: 0
+  - itemName: PoisonArrow
+    itemImage: {fileID: 21300000, guid: f5eb013065c863543a42c34e3f3cdb5b, type: 3}
+    buttonImage: {fileID: 21300000, guid: f5eb013065c863543a42c34e3f3cdb5b, type: 3}
+    itemPrice: 15
+    itemMaxValue: 20
+    hasMaxValue: 1
+    type: 1
+    purchaseType: 1
+    levelLock: 0
+    levelToUnlock: 10
+    id: 22
+    isFree: 0
+    oneTimePurchase: 0
+    pet: {fileID: 0}
+    duration: 0
+  - itemName: Warrior
+    itemImage: {fileID: 21300000, guid: 55ea1858d1056bc4e821b3d8342aa89d, type: 3}
+    buttonImage: {fileID: 0}
+    itemPrice: 15
+    itemMaxValue: 20
+    hasMaxValue: 1
+    type: 0
+    purchaseType: 1
+    levelLock: 0
+    levelToUnlock: 0
+    id: 23
+    isFree: 1
+    oneTimePurchase: 0
+    pet: {fileID: 7410894354902345084, guid: 0456569c346a8cc40b693ef04ff40a03, type: 3}
+    duration: 0
+  - itemName: DefenseWall
+    itemImage: {fileID: 21300000, guid: a2c81ac4ee9548347975960f2716957b, type: 3}
+    buttonImage: {fileID: 21300000, guid: a2c81ac4ee9548347975960f2716957b, type: 3}
+    itemPrice: 15
+    itemMaxValue: 20
+    hasMaxValue: 1
+    type: 2
+    purchaseType: 1
+    levelLock: 0
+    levelToUnlock: 0
+    id: 23
+    isFree: 0
+    oneTimePurchase: 1
+    pet: {fileID: 7410894354902345084, guid: 0456569c346a8cc40b693ef04ff40a03, type: 3}
+    duration: 0
+  - itemName: DoubleXp1D
+    itemImage: {fileID: 21300000, guid: 0ff358643dea9a54aae53a4d3ff1434e, type: 3}
+    buttonImage: {fileID: 21300000, guid: 0ff358643dea9a54aae53a4d3ff1434e, type: 3}
+    itemPrice: 15
+    itemMaxValue: 20
+    hasMaxValue: 1
+    type: 6
+    purchaseType: 1
+    levelLock: 0
+    levelToUnlock: 0
+    id: 24
+    isFree: 0
+    oneTimePurchase: 1
+    pet: {fileID: 7410894354902345084, guid: 0456569c346a8cc40b693ef04ff40a03, type: 3}
+    duration: 0
+  - itemName: DoubleXp1H
+    itemImage: {fileID: 21300000, guid: 0ff358643dea9a54aae53a4d3ff1434e, type: 3}
+    buttonImage: {fileID: 21300000, guid: 0ff358643dea9a54aae53a4d3ff1434e, type: 3}
+    itemPrice: 15
+    itemMaxValue: 20
+    hasMaxValue: 1
+    type: 6
+    purchaseType: 1
+    levelLock: 0
+    levelToUnlock: 0
+    id: 25
+    isFree: 0
+    oneTimePurchase: 1
+    pet: {fileID: 7410894354902345084, guid: 0456569c346a8cc40b693ef04ff40a03, type: 3}
+    duration: 1

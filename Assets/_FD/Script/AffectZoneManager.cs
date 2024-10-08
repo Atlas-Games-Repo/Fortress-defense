@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public enum AffectZoneType { Lighting, Frozen, Poison, Magnet, Cure, Fire, Dark, Aero }
+public enum AffectZoneType { Lighting, Frozen, Poison, Magnet, Cure, Fire, Dark, Aero,LightningAll,Armagdon, DefenseWall }
+
 
 [Serializable]
 public class AffectZoneXPConsume{
@@ -23,6 +24,9 @@ public class AffectZoneManager : MonoBehaviour
     [Header("CURE")] public float healAmount;
     public AudioClip cureSound;
     AffectZoneButton pickedBtn;
+    [Header("Armagdon")]
+    public float timeDifferenceBetweenFireBalls = 0.4f;
+
     public float disable_affectzone_countdown_cooldown = 5;
     public AffectZoneXPConsume[] XPConsumes;
     public int XPconsume(AffectZoneType type) {
@@ -36,7 +40,38 @@ public class AffectZoneManager : MonoBehaviour
     {
 
     }
+    #region LightningGlobal
 
+    public void LightningAll()
+    {
+        foreach (AffectZone zone in affectZoneList)
+        {
+            zone.gameObject.SetActive(true);
+            zone.Active(AffectZoneType.Lighting);
+        }
+    }
+    #endregion
+
+    #region Armagdon
+
+    public void Armagdon()
+    {
+        for (int i = 0; i < affectZoneList.Length; i++)
+        {
+            StartCoroutine(ActivateArmagdon(affectZoneList[i], i * timeDifferenceBetweenFireBalls));
+        }
+    }
+
+    IEnumerator ActivateArmagdon(AffectZone zone,float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        zone.gameObject.SetActive(true);
+        zone.ActivateArmagdon();
+    }
+    
+
+    #endregion
+    
     private void Awake()
     {
         Instance = this;

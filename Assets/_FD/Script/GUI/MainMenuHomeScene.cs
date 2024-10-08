@@ -11,9 +11,10 @@ public class MainMenuHomeScene : MonoBehaviour
     public GameObject ShopUI;
     public GameObject TrophyUI,TrophyUIV2;
     public GameObject EventUI, CoinShopUI, UpgradeUI,LeaderBoardUI;
-
+    public GameObject StoreUI;
     public GameObject Loading;
     public GameObject Settings;
+    public GameObject inventory;
     public string facebookLink;
     public string twitterLink = "https://twitter.com/";
     public string playingLevelName = "Playing atlas";
@@ -100,6 +101,20 @@ public class MainMenuHomeScene : MonoBehaviour
         StartCoroutine(OpenMapCo(open));
     }
 
+    public void OpenInventory(bool open)
+    {
+        SoundManager.Click();
+        StartCoroutine(OpenInventoryCo(open));
+    }
+
+    IEnumerator OpenInventoryCo(bool open)
+    {
+        yield return null;
+        BlackScreenUI.instance.Show(0.2f);
+        inventory.SetActive(open);
+        inventory.GetComponent<Inventory>().InitSlots();
+        BlackScreenUI.instance.Hide(0.2f);
+    }
     IEnumerator OpenMapCo(bool open)
     {
         yield return null;
@@ -130,6 +145,13 @@ public class MainMenuHomeScene : MonoBehaviour
     {
         SoundManager.Click();
         Settings.SetActive(open);
+    }
+
+    public void Store(bool open)
+    {
+        SoundManager.Click();
+        StoreUI.SetActive(open);
+        StoreUI.GetComponent<Shop>().OpenMenu("features");
     }
     public void OpenUpgradeUI(bool open)
     {

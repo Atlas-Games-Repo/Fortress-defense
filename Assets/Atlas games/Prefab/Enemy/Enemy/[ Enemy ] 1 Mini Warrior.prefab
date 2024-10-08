@@ -40,7 +40,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3597275867387871173}
   - component: {fileID: 4556320390957810553}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -471,6 +471,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: target
+      objectReference: {fileID: 0}
+    - target: {fileID: 1438046594576658157, guid: 4c79c1b537c6fcf4da407c934d03d329,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5302841713383904977, guid: 4c79c1b537c6fcf4da407c934d03d329,
         type: 3}

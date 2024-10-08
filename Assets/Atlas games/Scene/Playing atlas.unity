@@ -134,11 +134,11 @@ PrefabInstance:
     - target: {fileID: 44947825, guid: 3a9adb650e235d44488f3b38b2b2d397, type: 3}
       propertyPath: CameraMove
       value: 
-      objectReference: {fileID: 870689479}
+      objectReference: {fileID: 0}
     - target: {fileID: 2418363519264089235, guid: 3a9adb650e235d44488f3b38b2b2d397,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2418363519264089235, guid: 3a9adb650e235d44488f3b38b2b2d397,
         type: 3}
@@ -291,12 +291,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b050c7e6cad25be4c84067c1994eceec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &265845624 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6236543548960031816, guid: 2c58b6bb9e506924398a8a7728a42ab3,
-    type: 3}
-  m_PrefabInstance: {fileID: 6236543548756082480}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &276968868 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6401542171816945080, guid: b78bbba641d6e6545a5e818d9f1e96f9,
@@ -633,18 +627,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterManager: {fileID: 6320282220373068748}
---- !u!114 &870689479 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6236543548493764087, guid: 2c58b6bb9e506924398a8a7728a42ab3,
-    type: 3}
-  m_PrefabInstance: {fileID: 6236543548756082480}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &914310958
 GameObject:
   m_ObjectHideFlags: 0
@@ -934,7 +916,7 @@ PrefabInstance:
         type: 3}
       propertyPath: bossManeger
       value: 
-      objectReference: {fileID: 2065812795}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 14c62279b37e6c24d81d4bce87c6ded6, type: 3}
 --- !u!114 &1347806397 stripped
@@ -1079,7 +1061,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1498458262
 GameObject:
@@ -1448,18 +1430,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2065812795 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6236543549714592267, guid: 2c58b6bb9e506924398a8a7728a42ab3,
-    type: 3}
-  m_PrefabInstance: {fileID: 6236543548756082480}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdbc7ca88401ac94fad5c01b43d02945, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &900228026843511936
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2440,12 +2410,12 @@ PrefabInstance:
         type: 3}
       propertyPath: WaveCountUI
       value: 
-      objectReference: {fileID: 265845624}
+      objectReference: {fileID: 0}
     - target: {fileID: 6534493661185011523, guid: fb464bc0aa95c1f48a242d0ae509120d,
         type: 3}
       propertyPath: bossManeger
       value: 
-      objectReference: {fileID: 2065812795}
+      objectReference: {fileID: 0}
     - target: {fileID: 6534493661185011523, guid: fb464bc0aa95c1f48a242d0ae509120d,
         type: 3}
       propertyPath: BossSpawnPoint

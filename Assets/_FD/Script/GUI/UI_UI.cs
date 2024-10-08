@@ -6,12 +6,17 @@ using UnityEngine.UI;
 public class UI_UI : MonoBehaviour
 {
     public float lerpSpeed = 1;
-
+    public float shieldLerpSpeed = 4;
     [Header("PLAYER HEALTHBAR")]
     public Slider healthSlider;
     public Text health;
     float healthValue;
-
+    
+    [Header("Shield HEALTHBAR")]
+    public Slider shieldHealthSlider;
+    public Text shieldHealth;
+    float _shieldhealthValue;
+    float _shieldHealthValue;
     //[Header("ENEMY HEALTHBAR")]
     //public Slider enemyHealthSlider;
     //public Text enemyHealth;
@@ -39,6 +44,8 @@ public class UI_UI : MonoBehaviour
     private void Update()
     {
         healthSlider.value = Mathf.Lerp(healthSlider.value, healthValue, lerpSpeed * Time.deltaTime);
+        shieldHealthSlider.value = Mathf.Lerp(shieldHealthSlider.value, _shieldhealthValue, shieldLerpSpeed * Time.deltaTime);
+
         //enemyHealthSlider.value = Mathf.Lerp(enemyHealthSlider.value, enemyHealthValue, lerpSpeed * Time.deltaTime);
         
         enemyWavePercentSlider.value = Mathf.Lerp(enemyWavePercentSlider.value, enemyWaveValue, lerpSpeed * Time.deltaTime);
@@ -60,6 +67,30 @@ public class UI_UI : MonoBehaviour
         //}
     }
 
+    public void ActivateShield(float currentShieldHealth, float maxShieldHealth)
+    {
+        health.gameObject.SetActive(false);
+        healthSlider.gameObject.SetActive(false);
+        shieldHealth.gameObject.SetActive(true);
+        shieldHealthSlider.gameObject.SetActive(true);
+        _shieldhealthValue = Mathf.Clamp01(currentShieldHealth / maxShieldHealth);
+        shieldHealth.text = (int)currentShieldHealth + "/" + (int)maxShieldHealth;
+    }
+
+    public void DeactivateShield()
+    {
+        health.gameObject.SetActive(true);
+        healthSlider.gameObject.SetActive(true);
+        shieldHealth.gameObject.SetActive(false);
+        shieldHealthSlider.gameObject.SetActive(false);
+    }
+    public void UpdateShieldHealthBar(float currentShieldHealth, float maxShieldHealth/*, HEALTH_CHARACTER healthBarType*/)
+    {
+        
+        _shieldhealthValue = Mathf.Clamp01(currentShieldHealth / maxShieldHealth);
+        shieldHealth.text = (int)currentShieldHealth + "/" + (int)maxShieldHealth;
+      
+    }
     public void UpdateEnemyWavePercent(float currentSpawn, float maxValue)
     {
         enemyWaveValue = Mathf.Clamp01(currentSpawn / maxValue);

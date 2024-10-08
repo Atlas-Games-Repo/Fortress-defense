@@ -74,6 +74,7 @@ public class GameTutorial : MonoBehaviour
     // start game and open tutorial automatically if never watched 
     void Start()
     {
+        darkBackground.SetActive(false);
         dialogBackground.SetActive(false);
         pointerObject.transform.SetParent(transform.parent);
         pointerObject.transform.SetSiblingIndex(transform.parent.childCount - 1);

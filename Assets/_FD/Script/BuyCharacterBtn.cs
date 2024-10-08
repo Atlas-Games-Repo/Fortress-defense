@@ -10,6 +10,12 @@ public class BuyCharacterBtn : MonoBehaviour, IKeyboardCall
     {
         OnBtnClick();
     }
+    public LayerMask targetLayerForPet;
+    public ShopItemData data;
+    private int[] _chosenPet;
+    public int petToSpawn = 0;
+    public int petCount = 1;
+    public GameObject[] pets;
     public KeyCode[] KeyType { get { return new KeyCode[] { KeyCode.E }; } }
     public int KeyObjectID { get { return gameObject.GetInstanceID(); } }
     public UpgradedCharacterParameter characterID;
@@ -43,6 +49,24 @@ public class BuyCharacterBtn : MonoBehaviour, IKeyboardCall
 
     void Start()
     {
+        _chosenPet = new int[petCount];
+        pets = new GameObject[petCount];
+        string[] chosenPetsDecode = GlobalValue.inventoryPets.Split(',');
+        for (int i = 0; i < chosenPetsDecode.Length; i++)
+        {
+            _chosenPet[i] = int.Parse(chosenPetsDecode[i]);
+            pets[i] = GetPetData(_chosenPet[i]).pet;
+        }
+
+        character = pets[petToSpawn];
+      // character.GetComponent<SmartEnemyGrounded>().startBehavior = STARTBEHAVIOR.WALK_LEFT;
+      // character.layer = LayerMask.NameToLayer("Player");
+      // character.tag = "Warrior";
+      // character.GetComponent<EnemyMeleeAttack>().targetLayer = 31;
+      // character.GetComponent<EnemyMeleeAttack>().targetLayer = LayerMask.NameToLayer("Enemy");
+      // character.GetComponent<CheckTargetHelper>().targetLayer = 31;
+      // character.GetComponent<CheckTargetHelper>().targetLayer = LayerMask.NameToLayer("Enemy");
+        
         ownBtn = GetComponent<Button>();
         ownBtn.onClick.AddListener(OnBtnClick);
 
@@ -130,7 +154,7 @@ public class BuyCharacterBtn : MonoBehaviour, IKeyboardCall
         if (GameManager.Instance.currentExp >= price)
         {
             //SoundManager.PlaySfx(SoundManager.Instance.buyCharacter);
-            CharacterManager.Instance.SpawnCharacter(this);
+            CharacterManager.Instance.SpawnCharacter(this, targetLayerForPet);
             GlobalValue.BoughtGroundUnit++;
         }
     }
@@ -141,5 +165,18 @@ public class BuyCharacterBtn : MonoBehaviour, IKeyboardCall
         allowWork = false;
         coolDownCounter = coolDown;
         GameManager.Instance.currentExp -= price;
+    }
+    ShopItemData.ShopItem GetPetData(int id)
+    {
+        ShopItemData.ShopItem chosenData = new ShopItemData.ShopItem();
+        for (int i = 0; i < data.ShopData.Length; i++)
+        {
+            if (data.ShopData[i].id == id)
+            {
+                chosenData = data.ShopData[i];
+            }
+        }
+
+        return chosenData;
     }
 }
