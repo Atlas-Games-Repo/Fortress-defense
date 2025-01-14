@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using System.Reflection;
+using System.Threading.Tasks;
+using System.Threading;
 
 public class AchievementScheduler : BasePlayerPrefs<AchievementScheduleModel>
 {
@@ -16,10 +18,15 @@ public class AchievementScheduler : BasePlayerPrefs<AchievementScheduleModel>
     public AchievementScheduleModel[] Schedules;
     private Coroutine Dispacher;
 
+    void OnApplicationQuit()
+    {
+        if (Dispacher != null)
+            StopCoroutine(Dispacher);
+    }
     void Start()
     {
-
-        Dispacher = StartCoroutine(Listener());
+        if (Dispacher == null)
+            Dispacher = StartCoroutine(Listener());
     }
     IEnumerator Listener()
     {
@@ -58,7 +65,8 @@ public class AchievementScheduler : BasePlayerPrefs<AchievementScheduleModel>
                     if (expired < 0 && foundSchedule.type != ScheduleType.ONETIME) continue;  // if the schedule isn't expired
 
                     int successfullTasks = 0;
-                    foreach (AchievementModel item in BasePlayerPrefs<AchievementModel>.DictArray.Where(a => a.Schedul_id == foundSchedule._id).ToArray()) // deactivate the expired Tasks
+                    AchievementModel[] items = BasePlayerPrefs<AchievementModel>.DictArray.Where(a => a.Schedul_id == foundSchedule._id).ToArray();
+                    foreach (AchievementModel item in items) // deactivate the expired Tasks
                     {
                         item.isActive = expired < 0 && item.isActive && item.status != TrophyStatus.PAYED;
 

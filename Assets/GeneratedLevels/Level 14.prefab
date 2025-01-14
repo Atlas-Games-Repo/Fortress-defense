@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7260728105060530880
+--- !u!1 &6056348686631943405
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,8 +8,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5742610510337794261}
-  - component: {fileID: 2192087334775240486}
+  - component: {fileID: 1139858410563348182}
+  - component: {fileID: 5777352024512849714}
   m_Layer: 0
   m_Name: Level 14
   m_TagString: Untagged
@@ -17,13 +17,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5742610510337794261
+--- !u!4 &1139858410563348182
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7260728105060530880}
+  m_GameObject: {fileID: 6056348686631943405}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -31,13 +31,13 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2192087334775240486
+--- !u!114 &5777352024512849714
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7260728105060530880}
+  m_GameObject: {fileID: 6056348686631943405}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 10855318d3b18864dac9125a2f68e835, type: 3}
@@ -45,60 +45,51 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemiesList: []
   type: 1
-  defaultExp: 100
+  defaultExp: 150
   Waves:
   - wait: 0
     enemySpawns:
-    - wait: 5
-      enemy: {fileID: 3697426553599540029, guid: c737a1613d0c3f14db79779f64a01621,
+    - wait: 0
+      enemy: {fileID: 3697426553599540029, guid: b03bf48e696a7784cb84b50914dbc03a,
         type: 3}
-      numberEnemy: 4
-      rate: 1
+      numberEnemy: 3
+      rate: 0
       customHealth: 0
-      customSpeed: 0
+      customSpeed: 1
       customAttackDmg: 0
       boosType: 0
-      BossScale: 1.599
-      BossMinExp: 99
-      BossMaxExp: 90
-    - wait: 10
-      enemy: {fileID: 3697426553599540029, guid: bb4a391d19b886c41b2c33129326ffa1,
+      BossScale: 0
+      BossMinExp: 0
+      BossMaxExp: 0
+      spawnFromUnderground: 0
+    - wait: 7
+      enemy: {fileID: 3697426553599540029, guid: 0671c1bc5377daf4dba9a0f053c05e01,
         type: 3}
-      numberEnemy: 5
-      rate: 2
+      numberEnemy: 3
+      rate: 0
       customHealth: 0
-      customSpeed: 0
+      customSpeed: 1
       customAttackDmg: 0
       boosType: 0
-      BossScale: 1.6
-      BossMinExp: 150
-      BossMaxExp: 170
-  - wait: 0
+      BossScale: 0
+      BossMinExp: 0
+      BossMaxExp: 0
+      spawnFromUnderground: 0
+  - wait: 5
     enemySpawns:
     - wait: 0
-      enemy: {fileID: 1384076305360503900, guid: 71d92f6a73d83a648b515b6a3ba1a113,
+      enemy: {fileID: 3697426553599540029, guid: 2188a8e0fa173ce4fbadcd9fadc71f00,
         type: 3}
-      numberEnemy: 4
-      rate: 2
+      numberEnemy: 3
+      rate: 0
       customHealth: 0
-      customSpeed: 0
+      customSpeed: 1.05
       customAttackDmg: 0
       boosType: 0
-      BossScale: 1.599
-      BossMinExp: 99
-      BossMaxExp: 90
-    - wait: 0
-      enemy: {fileID: 2742581098072274894, guid: e08cd14326358354b9acc253cee4fa3d,
-        type: 3}
-      numberEnemy: 6
-      rate: 1
-      customHealth: 0
-      customSpeed: 0
-      customAttackDmg: 0
-      boosType: 0
-      BossScale: 1.6
-      BossMinExp: 150
-      BossMaxExp: 170
+      BossScale: 0
+      BossMinExp: 0
+      BossMaxExp: 0
+      spawnFromUnderground: 0
   increaseEnemySpeedDifficultyRate: 0.05
   increaseEnemyAttackDifficultyRate: 0.1
   increaseEnemyHealthDifficultyRate: 0.1
@@ -106,4 +97,6 @@ MonoBehaviour:
   increaseEnemyWaitDifficultyRate: 0.2
   initialWaitAmount: 3
   level: 14
-  backgroundSprite: {fileID: 21300000, guid: fdc33d5c7ce20604ab95d438c07656fb, type: 3}
+  backgroundSprite: {fileID: 21300000, guid: fa94fbf0d91e75249b87031cc66d130e, type: 3}
+  nightMode: 0
+  nightMultiplierFixedAmount: 2

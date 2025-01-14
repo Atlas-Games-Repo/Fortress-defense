@@ -322,6 +322,8 @@ MonoBehaviour:
   delayChasePlayerWhenDetect: 0
   is_spine: 0
   skeletonAnimation: {fileID: 0}
+  customNightMultiplier: 2
+  useCustomNightMultiplier: 0
   magnet: 0
   magnetPos: {x: 0, y: 0, z: 0}
   magnetAttractionSpeed: 0
@@ -369,6 +371,8 @@ MonoBehaviour:
   soundAttacksVol: 0.5
   soundAttacks:
   - {fileID: 8300000, guid: a64b5cfe6206b3949bd0c921d9e6f092, type: 3}
+  customNightMultiplier: 2
+  useCustomNightMultiplierOnly: 0
 --- !u!50 &7239275217717614911
 Rigidbody2D:
   serializedVersion: 4
@@ -415,6 +419,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coinGiveMin: 15
   coinGiveMax: 20
+  customNightMultiplier: 2
+  useCustomNightMultiplierOnly: 0
 --- !u!114 &3118550692532879360
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -429,6 +435,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   expMin: 40
   expMax: 45
+  customNightMultiplier: 2
+  useCustomNightMultiplierOnly: 0
 --- !u!1 &6513545255628658252
 GameObject:
   m_ObjectHideFlags: 0

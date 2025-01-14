@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4501650637134391966
+--- !u!1 &6056348686631943405
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,8 +8,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8127948125271484645}
-  - component: {fileID: 7029894006259564399}
+  - component: {fileID: 1139858410563348182}
+  - component: {fileID: 5777352024512849714}
   m_Layer: 0
   m_Name: level 20
   m_TagString: Untagged
@@ -17,13 +17,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8127948125271484645
+--- !u!4 &1139858410563348182
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4501650637134391966}
+  m_GameObject: {fileID: 6056348686631943405}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -31,13 +31,13 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7029894006259564399
+--- !u!114 &5777352024512849714
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4501650637134391966}
+  m_GameObject: {fileID: 6056348686631943405}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 10855318d3b18864dac9125a2f68e835, type: 3}
@@ -45,35 +45,50 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemiesList: []
   type: 1
-  defaultExp: 100
+  defaultExp: 180
   Waves:
   - wait: 0
     enemySpawns:
-    - wait: 5
+    - wait: 0
       enemy: {fileID: 3697426553599540029, guid: c737a1613d0c3f14db79779f64a01621,
         type: 3}
-      numberEnemy: 4
-      rate: 1
+      numberEnemy: 2
+      rate: 0
       customHealth: 0
       customSpeed: 0
       customAttackDmg: 0
       boosType: 0
-      BossScale: 1.1
-      BossMinExp: 25
-      BossMaxExp: 50
+      BossScale: 0
+      BossMinExp: 0
+      BossMaxExp: 0
       spawnFromUnderground: 0
-    - wait: 11
-      enemy: {fileID: 3697426553599540029, guid: 8d5cd9de2fd6e4a40aa6ab3793c4b0f6,
+    - wait: 7
+      enemy: {fileID: 3697426553599540029, guid: 744cead175a7c9f44ad29de6d5d92aff,
+        type: 3}
+      numberEnemy: 3
+      rate: 0
+      customHealth: 0
+      customSpeed: 0
+      customAttackDmg: 0
+      boosType: 0
+      BossScale: 0
+      BossMinExp: 0
+      BossMaxExp: 0
+      spawnFromUnderground: 0
+  - wait: 0
+    enemySpawns:
+    - wait: 0
+      enemy: {fileID: 3697426553599540029, guid: b03bf48e696a7784cb84b50914dbc03a,
         type: 3}
       numberEnemy: 1
-      rate: 1
-      customHealth: 1500
+      rate: 0
+      customHealth: 500
       customSpeed: 1
-      customAttackDmg: 50
+      customAttackDmg: 20
       boosType: 2
       BossScale: 2
-      BossMinExp: 25
-      BossMaxExp: 50
+      BossMinExp: 0
+      BossMaxExp: 0
       spawnFromUnderground: 0
   increaseEnemySpeedDifficultyRate: 0.05
   increaseEnemyAttackDifficultyRate: 0.1
@@ -82,6 +97,6 @@ MonoBehaviour:
   increaseEnemyWaitDifficultyRate: 0.2
   initialWaitAmount: 3
   level: 20
-  backgroundSprite: {fileID: 21300000, guid: fdc33d5c7ce20604ab95d438c07656fb, type: 3}
+  backgroundSprite: {fileID: 21300000, guid: fa94fbf0d91e75249b87031cc66d130e, type: 3}
   nightMode: 0
   nightMultiplierFixedAmount: 2

@@ -1,9 +1,9 @@
 name: Unity Build Addressable Extra
 
 on:
-    push:
-        branches:
-            - fix-content-build
+    # push:
+    #     branches:
+    #         - 153-fix-android-home-menu-build
     workflow_dispatch:
         inputs:
             customParameters:

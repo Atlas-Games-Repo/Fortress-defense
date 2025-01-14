@@ -21,7 +21,7 @@ public class EnemyRangeAttack : MonoBehaviour
     public float damage = 30;
     public float detectDistance = 5;
     public Projectile bullet;
-    [HideInInspector] public float shootingRate = 1;
+    public float shootingRate = 1;
     [HideInInspector] public int multiShoot = 1;
     [HideInInspector] public float multiShootRate = 0.2f;
     float lastShoot = 0;

@@ -24,7 +24,7 @@ public enum ScheduleStatus
     EXPIRED
 }
 [Serializable]
-public class AchievementModel : BaseModel
+public class AchievementModel
 {
     public Guid _id = Guid.Empty;
     public Guid Schedul_id = Guid.Empty;
@@ -41,7 +41,7 @@ public class AchievementModel : BaseModel
 
 }
 [Serializable]
-public class AchievementScheduleModel : BaseModel
+public class AchievementScheduleModel
 {
     public Guid _id = Guid.NewGuid();
     public string name;

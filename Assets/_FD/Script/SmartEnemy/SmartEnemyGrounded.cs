@@ -38,7 +38,6 @@ public class SmartEnemyGrounded : Enemy, ICanTakeDamage, IGetTouchEvent
 
     [Space(3)] [Header("Spawning from Underground")]
     public bool spawnFromUnderground;
-
     public GameObject undergroundSandPile;
     private GameObject _spawningArea;
     private Vector2 _spawnPos;
@@ -116,11 +115,13 @@ public class SmartEnemyGrounded : Enemy, ICanTakeDamage, IGetTouchEvent
         GameObject[] playerWarriors = GameObject.FindGameObjectsWithTag(warriorTag);
         if (playerWarriors.Length == 0)
         {
-            _spawningArea = GameObject.FindWithTag("UndergroundSpawn");
-            Bounds bounds = _spawningArea.GetComponent<SpriteRenderer>().bounds;
-            float randomX = Random.Range(bounds.min.x, bounds.max.x);
-            float randomY = Random.Range(bounds.min.y, bounds.max.y);
-            _spawnPos = new Vector2(randomX, randomY);
+            // _spawningArea = GameObject.FindWithTag("UndergroundSpawn");
+            // Bounds bounds = _spawningArea.GetComponent<SpriteRenderer>().bounds;
+            // float randomX = Random.Range(bounds.min.x, bounds.max.x);
+            // float randomY = Random.Range(bounds.min.y, bounds.max.y);
+            int random_index = Random.Range(0, LevelEnemyManager.Instance.underground_spawn_positions.Length);
+            _spawnPos = LevelEnemyManager.Instance.underground_spawn_positions[random_index].position;
+            // _spawnPos = new Vector2(randomX, randomY);
         }
         else
         {
@@ -168,8 +169,13 @@ public class SmartEnemyGrounded : Enemy, ICanTakeDamage, IGetTouchEvent
 
     public override void Start()
     {
-      
 
+        if (spawnFromUnderground)
+        {
+            StartClimbing();
+        }
+        
+        
         base.Start();
         controller = GetComponent<Controller2D>();
         _direction = isFacingRight() ? Vector2.right : Vector2.left;

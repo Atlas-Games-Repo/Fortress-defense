@@ -1,0 +1,43 @@
+This is a file that is related to animations. This file contains any emergency information about animations and assets.
+The point of this document is:
+1- That programmers can detect animations bugs and problems easier and report them.
+2- We need some rules so that we won't get lost in the process in the future.
+3- We don't need to explain everything to other team members Or future animators. We can just send them this document. 
+
+1- Layers:
+So basically we need to cut the 2d asset that we have and prepare it for rigging and animating. This process will take
+place in a photo editor such as photoshop or gimp. Layers must be in the right order. (e.g. the troll's left hand in this
+project is in the back, which means it should be placed at the bottom of all layers). The order of layers is important as
+it would affect the animation and final result. (e.g. the troll's weapon was mistakenly placed at the bottom of the head.
+This effect is not visible by it self unless you move the right hand till the weapon collapses to the troll's head).
+
+2- Animations:
+We attach the animations to the parent as requested. In order to name any animations, we use this format 
+"asset name_animation name_animation number". So for e.g. we made the first walk animation for an enemy named troll
+. We must name is "Troll_Walk_0". We start counting from 0 instead of 1.
+
+3- Bones:
+We name bones by using this format "name of the asset attached to the bone_number". Because parent bones can be both connected
+and disconnected, we instead define the number by simply looking at the bones. If the bone has a free tail, then we use 0. if 
+it has a connected tail, then we count connected bones and we use that number for the bone. For e.g. if we attached a bone to 
+the monster's arm and it is connected to 2 other bones through its tail, which means its name would be arm_2.
+
+4- Assets name:
+In order to name any asset, we use capital latters at first and small laters for the rest. If an asset has a two-word name; we
+use capital latters for the first part of the world and small latters for the rest. So an asset named "Snow Ogre" will be "SnowOgre".
+(All assets have names from befor. But w have to edit them with this format and we have to avoid using "empty space" and "-" and |_" 
+between the words.) If we had more than one asset (like two legs), the naming will be leg0 and leg1.
+
+5- Another type of assets and animations:
+Since we have two types of assets and animations (walkable and throwable) we need to name them differently. For walkable assets we add
+a [W] before their name.
+
+6- Other things:
+Things that we will put in this document later, which means this document is not finished yet.
+
+We have a test project ready with three monsters and one animations for each. Please check them and by using this document,
+point out to any problems you find.
+
+Extra tips:
+Changing any enemy's name (and its prefab) is okay (as long as its name gets changed befor its prefab). So in order to duplicate and
+creat new enemies, this method can be usful so no one won't get the names mixed together.

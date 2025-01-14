@@ -105,6 +105,7 @@ public class GameMode : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.A))
         {
             GlobalValue.LevelPass = 999999;
+            GlobalValue.WorldPass = 999999;
         }
     }
 

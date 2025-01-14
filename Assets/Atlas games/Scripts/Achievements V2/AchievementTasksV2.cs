@@ -5,6 +5,7 @@ using System;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
+using System.Threading;
 
 public class AchievementTasksV2 : BasePlayerPrefs<AchievementModel>
 {
@@ -25,7 +26,9 @@ public class AchievementTasksV2 : BasePlayerPrefs<AchievementModel>
         {
             Destroy(gameObject);
         }
-        _dispatcher = StartCoroutine(Listener());
+        init();
+        if (_dispatcher == null)
+            _dispatcher = StartCoroutine(Listener());
 
     }
     IEnumerator Listener()
@@ -36,13 +39,11 @@ public class AchievementTasksV2 : BasePlayerPrefs<AchievementModel>
             achievements[i] = new AchievementEventsV2(DictArray[i]);
         }
         // AddNewAchievements(models);
-        yield return new WaitForSeconds(InitialDelaySeconds);
         while (true)
         {
             foreach (AchievementEventsV2 item in achievements)
             {
                 _ = item.IsPassed;
-                yield return new WaitForEndOfFrame(); // performance upgrade
             }
             yield return new WaitForSeconds(ListenerTickSeconds);
         }

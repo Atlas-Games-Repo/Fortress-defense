@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69b51c9107a91bb4caab83f861dee1f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InitialDelaySeconds: 0.1
+  InitialDelaySeconds: 0.5
   ListenerTickSeconds: 1
   achievements: []
 --- !u!114 &7982743687646171271
@@ -60,7 +60,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: 8dd0cf85c1ed9604a9395d0888c48726, type: 2}
-  InitialDelaySeconds: 0.2
+  InitialDelaySeconds: 1
   ListenerTickSeconds: 3
   HoldExpiredScheduleMinutes: 1440
   Probability:

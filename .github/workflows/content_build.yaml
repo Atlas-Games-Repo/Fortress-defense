@@ -79,29 +79,29 @@ jobs:
               with:
                   name: ContentBuild-Android
                   path: Bundles
-    buildForMac:
-        name: Build for StandaloneOSX
-        runs-on: macos-latest
-        steps:
-            - uses: actions/checkout@v4
-              with:
-                  lfs: true
-            - uses: actions/cache@v3
-              with:
-                  path: Library
-                  key: Library-StandaloneOSX
-            - uses: game-ci/unity-builder@v4
-              env:
-                  UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
-                  UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
-                  UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
-              with:
-                  buildMethod: UnityBuilderAction.BuildScript.${{ inputs.build_type }}
-                  targetPlatform: StandaloneOSX
-            - uses: actions/upload-artifact@v3
-              with:
-                  name: ContentBuild-StandaloneOSX
-                  path: Bundles
+    # buildForMac:
+    #     name: Build for StandaloneOSX
+    #     runs-on: macos-latest
+    #     steps:
+    #         - uses: actions/checkout@v3
+    #           with:
+    #               lfs: true
+    #         - uses: actions/cache@v3
+    #           with:
+    #               path: Library
+    #               key: Library-StandaloneOSX
+    #         - uses: game-ci/unity-builder@v2
+    #           env:
+    #               UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+    #               UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+    #               UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+    #           with:
+    #               buildMethod: UnityBuilderAction.BuildScript.${{ inputs.build_type }}
+    #               targetPlatform: StandaloneOSX
+    #         - uses: actions/upload-artifact@v3
+    #           with:
+    #               name: ContentBuild-StandaloneOSX
+    #               path: Bundles
     buildForWindows:
         name: Build for StandaloneWindows
         runs-on: windows-2022
