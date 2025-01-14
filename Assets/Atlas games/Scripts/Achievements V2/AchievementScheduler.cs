@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using System.Reflection;
+using System.Threading.Tasks;
+using System.Threading;
 
 public class AchievementScheduler : BasePlayerPrefs<AchievementScheduleModel>
 {
@@ -16,10 +18,15 @@ public class AchievementScheduler : BasePlayerPrefs<AchievementScheduleModel>
     public AchievementScheduleModel[] Schedules;
     private Coroutine Dispacher;
 
+    void OnApplicationQuit()
+    {
+        if (Dispacher != null)
+            StopCoroutine(Dispacher);
+    }
     void Start()
     {
-
-        Dispacher = StartCoroutine(Listener());
+        if (Dispacher == null)
+            Dispacher = StartCoroutine(Listener());
     }
     IEnumerator Listener()
     {
