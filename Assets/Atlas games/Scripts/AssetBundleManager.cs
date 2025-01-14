@@ -1,11 +1,7 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 using System.Threading.Tasks;
 using System.IO;
-using System.Reflection;
-using System;
 using System.Text.RegularExpressions;
 
 public class AssetBundleManager : MonoBehaviour
@@ -30,8 +26,11 @@ public class AssetBundleManager : MonoBehaviour
     }
     public async Task LoadFromFile(int i)
     {
-        var updates = await APIManager.instance.Check_for_updates(type: bundles[i].name);
+        string bundle_name = bundles[i].name;
+        Add_target_platform(ref bundle_name, 0);
+        var updates = await APIManager.instance.Check_for_updates(type: bundle_name);
         string file_name = Address_to_name(updates.list[0]);
+        if (file_name == "") return;
         if (File.Exists(APIManager.instance.GetFilePath(file_name)))
         {
             AssetBundleCreateRequest bundle = AssetBundle.LoadFromFileAsync(APIManager.instance.GetFilePath(file_name));
@@ -71,11 +70,33 @@ public class AssetBundleManager : MonoBehaviour
         string file_name = "";
         RegexOptions options = RegexOptions.Multiline;
         string pattern = @"/(.[a-zA-Z0-9]+.assetbundle)";
+        Add_target_platform(ref pattern);
         foreach (Match m in Regex.Matches(address, pattern, options))
         {
             file_name = m.Groups[1].Value;
         }
         return file_name;
+    }
+    public void Add_target_platform(ref string pattern, int index = 2)
+    {
+#if UNITY_ANDROID
+        pattern = pattern.Insert(index, "Android");
+#endif
+#if UNITY_WEBGL
+        pattern = pattern.Insert(index, "WebGL");
+#endif
+#if UNITY_STANDALONE_OSX
+        pattern = pattern.Insert(index, "StandaloneOSX");
+#endif
+#if UNITY_IOS
+        pattern = pattern.Insert(index, "iOS");
+#endif
+#if UNITY_STANDALONE_WIN && !UNITY_64 
+        pattern = pattern.Insert(index, "StandaloneWindows");
+#endif
+#if UNITY_STANDALONE_WIN && UNITY_64
+        pattern = pattern.Insert(index, "StandaloneWindows64");
+#endif
     }
 
 }

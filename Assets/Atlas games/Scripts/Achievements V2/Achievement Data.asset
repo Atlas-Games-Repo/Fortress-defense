@@ -575,9 +575,9 @@ MonoBehaviour:
     status: 0
   - name: Passed Level
     description: Pass zNoNzth Level
-    reward: 10
+    reward: 50
     startPoint: 0
-    checkpoint: 500
+    checkpoint: 10
     fieldName: LevelPass
     isActive: 1
     isOneTime: 1
@@ -585,9 +585,9 @@ MonoBehaviour:
     status: 0
   - name: Passed Level
     description: Pass zNoNzth Level
-    reward: 20
+    reward: 150
     startPoint: 0
-    checkpoint: 1000
+    checkpoint: 20
     fieldName: LevelPass
     isActive: 1
     isOneTime: 1
@@ -595,9 +595,9 @@ MonoBehaviour:
     status: 0
   - name: Passed Level
     description: Pass zNoNzth Level
-    reward: 40
+    reward: 200
     startPoint: 0
-    checkpoint: 2000
+    checkpoint: 25
     fieldName: LevelPass
     isActive: 1
     isOneTime: 1
@@ -605,9 +605,9 @@ MonoBehaviour:
     status: 0
   - name: Passed Level
     description: Pass zNoNzth Level
-    reward: 80
+    reward: 250
     startPoint: 0
-    checkpoint: 4000
+    checkpoint: 30
     fieldName: LevelPass
     isActive: 1
     isOneTime: 1
@@ -615,9 +615,9 @@ MonoBehaviour:
     status: 0
   - name: Passed Level
     description: Pass zNoNzth Level
-    reward: 160
+    reward: 250
     startPoint: 0
-    checkpoint: 8000
+    checkpoint: 35
     fieldName: LevelPass
     isActive: 1
     isOneTime: 1
@@ -625,9 +625,9 @@ MonoBehaviour:
     status: 0
   - name: Passed Level
     description: Pass zNoNzth Level
-    reward: 320
+    reward: 300
     startPoint: 0
-    checkpoint: 16000
+    checkpoint: 40
     fieldName: LevelPass
     isActive: 1
     isOneTime: 1
@@ -635,9 +635,9 @@ MonoBehaviour:
     status: 0
   - name: Passed Level
     description: Pass zNoNzth Level
-    reward: 640
+    reward: 400
     startPoint: 0
-    checkpoint: 32000
+    checkpoint: 45
     fieldName: LevelPass
     isActive: 1
     isOneTime: 1
@@ -645,9 +645,9 @@ MonoBehaviour:
     status: 0
   - name: Passed Level
     description: Pass zNoNzth Level
-    reward: 1280
+    reward: 500
     startPoint: 0
-    checkpoint: 64000
+    checkpoint: 50
     fieldName: LevelPass
     isActive: 1
     isOneTime: 1
@@ -655,9 +655,9 @@ MonoBehaviour:
     status: 0
   - name: Passed Level
     description: Pass zNoNzth Level
-    reward: 2560
+    reward: 1000
     startPoint: 0
-    checkpoint: 128000
+    checkpoint: 60
     fieldName: LevelPass
     isActive: 1
     isOneTime: 1
@@ -665,9 +665,9 @@ MonoBehaviour:
     status: 0
   - name: Passed Level
     description: Pass zNoNzth Level
-    reward: 5120
+    reward: 10000
     startPoint: 0
-    checkpoint: 256000
+    checkpoint: 100
     fieldName: LevelPass
     isActive: 1
     isOneTime: 1
@@ -675,9 +675,9 @@ MonoBehaviour:
     status: 0
   - name: Pass Level
     description: Pass zNoNz Levels
-    reward: 60
+    reward: 100
     startPoint: 0
-    checkpoint: 30
+    checkpoint: 10
     fieldName: LevelPass
     isActive: 1
     isOneTime: 0
@@ -687,7 +687,7 @@ MonoBehaviour:
     description: Pass zNoNz Levels
     reward: 100
     startPoint: 0
-    checkpoint: 30
+    checkpoint: 20
     fieldName: LevelPass
     isActive: 1
     isOneTime: 0
@@ -695,7 +695,7 @@ MonoBehaviour:
     status: 0
   - name: Pass Level
     description: Pass zNoNz Levels
-    reward: 130
+    reward: 200
     startPoint: 0
     checkpoint: 30
     fieldName: LevelPass
@@ -705,9 +705,9 @@ MonoBehaviour:
     status: 0
   - name: Pass Level
     description: Pass zNoNz Levels
-    reward: 160
+    reward: 400
     startPoint: 0
-    checkpoint: 30
+    checkpoint: 40
     fieldName: LevelPass
     isActive: 1
     isOneTime: 0
@@ -715,7 +715,7 @@ MonoBehaviour:
     status: 0
   - name: Pass Level
     description: Pass zNoNz Levels
-    reward: 120
+    reward: 400
     startPoint: 0
     checkpoint: 60
     fieldName: LevelPass
@@ -725,9 +725,9 @@ MonoBehaviour:
     status: 0
   - name: Pass Level
     description: Pass zNoNz Levels
-    reward: 140
+    reward: 400
     startPoint: 0
-    checkpoint: 60
+    checkpoint: 70
     fieldName: LevelPass
     isActive: 1
     isOneTime: 0
@@ -735,9 +735,9 @@ MonoBehaviour:
     status: 0
   - name: Pass Level
     description: Pass zNoNz Levels
-    reward: 180
+    reward: 500
     startPoint: 0
-    checkpoint: 60
+    checkpoint: 80
     fieldName: LevelPass
     isActive: 1
     isOneTime: 0
@@ -745,9 +745,9 @@ MonoBehaviour:
     status: 0
   - name: Pass Level
     description: Pass zNoNz Levels
-    reward: 250
+    reward: 500
     startPoint: 0
-    checkpoint: 60
+    checkpoint: 90
     fieldName: LevelPass
     isActive: 1
     isOneTime: 0
@@ -755,43 +755,13 @@ MonoBehaviour:
     status: 0
   - name: Pass Level
     description: Pass zNoNz Levels
-    reward: 180
+    reward: 1000
     startPoint: 0
-    checkpoint: 90
+    checkpoint: 99
     fieldName: LevelPass
     isActive: 1
     isOneTime: 0
     type: 0
-    status: 0
-  - name: Pass Level
-    description: Pass zNoNz Levels
-    reward: 220
-    startPoint: 0
-    checkpoint: 90
-    fieldName: LevelPass
-    isActive: 1
-    isOneTime: 0
-    type: 1
-    status: 0
-  - name: Pass Level
-    description: Pass zNoNz Levels
-    reward: 250
-    startPoint: 0
-    checkpoint: 90
-    fieldName: LevelPass
-    isActive: 1
-    isOneTime: 0
-    type: 2
-    status: 0
-  - name: Pass Level
-    description: Pass zNoNz Levels
-    reward: 300
-    startPoint: 0
-    checkpoint: 90
-    fieldName: LevelPass
-    isActive: 1
-    isOneTime: 0
-    type: 3
     status: 0
   - name: Pass World
     description: Pass zNoNzth World

@@ -10,6 +10,7 @@ public class ExtendedEditorWindow : EditorWindow
     protected SerializedProperty serializedProperty;
     string LevelEnemyManagerPath = "Assets/_FD/Prefab/System/LevelEnemyManager.prefab";
     string GameLevelSetupPath = "Assets/BundledAssets/Loading/Game Level Setup.prefab";
+    string AssetsPath = "Assets/GeneratedLevels/";
     public GameLevelSetup gameLevelSetup;
 
     protected string gameLevelSetupPath
@@ -70,7 +71,8 @@ public class ExtendedEditorWindow : EditorWindow
         level.defaultExp = obj.levels[0].defaultExp;
         level.backgroundSprite = obj.levels[0].backgroundSprite;
         level.Waves = obj.levels[0].Waves;
-
+        level.nightMode = obj.levels[0].nightMode;
+        level.nightMultiplierFixedAmount = obj.levels[0].nightModeXpMultiplier;
         // Create the new Prefab and log whether Prefab was saved successfully.
         bool prefabSuccess;
 
@@ -86,8 +88,8 @@ public class ExtendedEditorWindow : EditorWindow
     }
     protected void Edit(LevelWave level, string name = null)
     {
-        if (!gameLevelSetup)
-            EditorUtility.DisplayDialog("Editing level", "First Open Game level setup!", "Ok", "Exit");
+        // if (!gameLevelSetup)
+        //     EditorUtility.DisplayDialog("Editing level", "First Open Game level setup!", "Ok", "Exit");
         LevelData obj = serializedObject.targetObject as LevelData;
         if (name != null)
             level.gameObject.name = name;
@@ -95,11 +97,14 @@ public class ExtendedEditorWindow : EditorWindow
         level.defaultExp = obj.levels[0].defaultExp;
         level.backgroundSprite = obj.levels[0].backgroundSprite;
         level.Waves = obj.levels[0].Waves;
+        level.nightMode = obj.levels[0].nightMode;
+        level.nightMultiplierFixedAmount = obj.levels[0].nightModeXpMultiplier;
         Apply();
-
         EditorUtility.SetDirty(level.gameObject);
-        PrefabUtility.RecordPrefabInstancePropertyModifications(level);
+        PrefabUtility.RecordPrefabInstancePropertyModifications(level.gameObject);
         EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo();
+        Apply();
+        AssetDatabase.Refresh();
     }
     protected void LoadLevel(LevelWave level)
     {
@@ -108,6 +113,8 @@ public class ExtendedEditorWindow : EditorWindow
         obj.levels[0].defaultExp = level.defaultExp;
         obj.levels[0].backgroundSprite = level.backgroundSprite;
         obj.levels[0].Waves = level.Waves;
+        obj.levels[0].nightMode = level.nightMode;
+        obj.levels[0].nightModeXpMultiplier = level.nightMultiplierFixedAmount;
         serializedObject = new SerializedObject(obj);
         Apply();
         AssetDatabase.Refresh();

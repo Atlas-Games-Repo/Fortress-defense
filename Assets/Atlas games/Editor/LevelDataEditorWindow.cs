@@ -63,17 +63,14 @@ public class LevelDataEditorWindow : ExtendedEditorWindow
         levelname = EditorGUILayout.TextField("Level name, exp: 'Level 1'", levelname);
 
         EditorGUILayout.BeginHorizontal("box");
-        if (GUILayout.Button("save"))
-        {
-            Debug.LogError("Saved the data");
-            Apply();
-        }
+        Apply();
         if (GUILayout.Button("save and export"))
         {
             Apply();
             if (levelname != null)
             {
                 createInstance(levelname);
+                Level = null;
                 Debug.LogError("Saved and exported the data");
             }
             else
@@ -81,19 +78,20 @@ public class LevelDataEditorWindow : ExtendedEditorWindow
                 EditorUtility.DisplayDialog("save and export", "the lavel name can't be Empty", "Ok", "Exit");
             }
         }
-        if (GUILayout.Button("Edit"))
+        if (GUILayout.Button("Edit Level"))
         {
             if (Level == null)
             {
-                EditorUtility.DisplayDialog("save and export", "Select a level first !", "Ok", "Exit");
+                EditorUtility.DisplayDialog("Editing level data", "Select a level first !", "Ok", "Exit");
                 return;
             }
             bool is_ok = EditorUtility.DisplayDialog("Edit level data", "Are you sure you want to edit the data?", "Edit", "Exit");
             if (is_ok)
             {
-                Debug.LogError("Edit the data");
+                Debug.LogError("Edited the data");
                 Apply();
                 Edit(Level, levelname);
+                Level = null;
             }
         }
         EditorGUILayout.EndHorizontal();

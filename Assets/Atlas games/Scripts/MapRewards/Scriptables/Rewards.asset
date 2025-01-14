@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f0c0aec8e0bc9342934c224aadf81ea, type: 3}
+  m_Name: Rewards
+  m_EditorClassIdentifier: 
+  coinIcon: {fileID: 21300000, guid: ae4cfd4d1d294ae449e46be0701cc0d2, type: 3}
+  expIcon: {fileID: 21300000, guid: 0ff358643dea9a54aae53a4d3ff1434e, type: 3}
+  rewards:
+  - rewardLevel: 10
+    type: 0
+    shopItemName: Healing Spell
+    amount: 200
+    icon: {fileID: 21300000, guid: ae4cfd4d1d294ae449e46be0701cc0d2, type: 3}
+  - rewardLevel: 20
+    type: 0
+    shopItemName: Healing Spell
+    amount: 350
+    icon: {fileID: 21300000, guid: ae4cfd4d1d294ae449e46be0701cc0d2, type: 3}
+  - rewardLevel: 30
+    type: 2
+    shopItemName: Frozen Arrow
+    amount: 1
+    icon: {fileID: 21300000, guid: 73e20d521b16b46e2b9bbf45cb7bb985, type: 3}
+  - rewardLevel: 40
+    type: 2
+    shopItemName: Healing Spell
+    amount: 1
+    icon: {fileID: 21300000, guid: 5953b0a94ebe43e40a8f470670a0a527, type: 3}

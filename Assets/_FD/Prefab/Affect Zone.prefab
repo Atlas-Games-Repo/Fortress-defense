@@ -48,6 +48,8 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -133,12 +135,22 @@ MonoBehaviour:
     type: 3}
   lightingRate: 1
   lightingSound: {fileID: 8300000, guid: 09a9c7022d7dc9848a4ab5a616b30535, type: 3}
+  fireAffectTime: 3
+  fireDamage: 10
+  fireFX: {fileID: 0}
+  fireRate: 1
+  fireSound: {fileID: 0}
   frozenActiveTime: 1
   frozenAffectTime: 6
   frozenDamage: 30
   frozenFX: {fileID: 6548707270156744103, guid: 92311b3fd0727054eb1d46064895ac98,
     type: 3}
   forzenSound: {fileID: 8300000, guid: 60b1a3909f2d94b40a83081a75757a8f, type: 3}
+  darkActiveTime: 3
+  darkAffectTime: 3
+  darkDamage: 10
+  darkFX: {fileID: 0}
+  darkSound: {fileID: 0}
   poisonActiveTime: 8
   poisonAffectTime: 3
   poisonDamage: 15
@@ -146,6 +158,29 @@ MonoBehaviour:
     type: 3}
   poisonRate: 1
   poisonSound: {fileID: 0}
+  magnetRate: 3
+  magnetActiveTime: 3
+  magnetIcon: {fileID: 0}
+  magnetScaleTime: 0.5
+  elapsedTime: 0
+  magnetDamage: 3
+  magnetAttractionSpeed: 5
+  tempMagnetList: []
+  minMagnetDistance: 0.2
+  magnetSound: {fileID: 0}
+  aeroRate: 3
+  aeroActiveTime: 3
+  aeroIcon: {fileID: 0}
+  aeroScaleTime: 0.5
+  elapsedAeroTime: 0
+  aeroDamage: 3
+  aeroAttractionSpeed: 5
+  tempAeroList: []
+  minAeroDistance: 0.2
+  aeroSound: {fileID: 0}
+  listEnemyInZone: []
+  min_xp_consum: 100
+  max_xp_consum: 99
 --- !u!95 &7033971606386179562
 Animator:
   serializedVersion: 3

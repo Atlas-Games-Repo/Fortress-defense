@@ -76,16 +76,13 @@ public class AchievementManagerV2 : MonoBehaviour
             yield return null;
         }
     }
-    public async void ClaimAchievement(AchievementModel foundedModel, GameObject obj)
+    public void ClaimAchievement(AchievementModel foundedModel, GameObject obj)
     {
         if (foundedModel == null || !foundedModel.isActive || !((int)foundedModel.status >= 2)) return;
-        bool result = await UserV2.SyncSetCoin(foundedModel.reward);
-        if (result)
-        {
-            foundedModel.status = TrophyStatus.PAYED;
-            BasePlayerPrefs<AchievementModel>.Update(foundedModel._id, foundedModel);
-            SetUpButtons(obj, DoneIndex);
-        }
+        User.Coin = foundedModel.reward;
+        foundedModel.status = TrophyStatus.PAYED;
+        BasePlayerPrefs<AchievementModel>.Update(foundedModel._id, foundedModel);
+        SetUpButtons(obj, DoneIndex);
     }
     void Add(AchievementModel trophy)
     {

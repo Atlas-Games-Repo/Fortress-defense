@@ -48,7 +48,6 @@ public class SoundManager : MonoBehaviour
     [Header("OTHER")]
     public AudioClip soundTimeUp;
     public AudioClip soundTimeDown;
-
     //public AudioClip switchPlayerSound;
 
     //public AudioClip soundCheckpoint;
@@ -99,7 +98,7 @@ public class SoundManager : MonoBehaviour
     {
         PlaySfx(Instance.soundClick);
     }
-
+    
     public void ClickBut()
     {
         PlaySfx(soundClick);

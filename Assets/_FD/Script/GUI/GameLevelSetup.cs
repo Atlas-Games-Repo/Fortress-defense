@@ -43,56 +43,68 @@ public class GameLevelSetup : MonoBehaviour
 
     public float IncreaseEnemySpeedDifficultyRate()
     {
-    float num= 0;
+        float num= 0;
         foreach (var obj in levelWaves)
         {
-            
-            num = obj.increaseEnemySpeedDifficultyRate;
+            if (obj.level == GlobalValue.levelPlaying) {
+                num = obj.increaseEnemySpeedDifficultyRate;
+                break;
+            }
         }
         return num;
     }
     public float IncreaseEnemyAttackDifficultyRate()
     {
-    float num= 0;
-        foreach (var obj in levelWaves)
-        {
-        num = obj.increaseEnemyAttackDifficultyRate;
+        float num= 0;
+        foreach (var obj in levelWaves) {
+            if (obj.level == GlobalValue.levelPlaying) {
+                num = obj.increaseEnemyAttackDifficultyRate;
+                break;
+            }
         }
         return num;
     }
     public float IncreaseEnemyHealthDifficultyRate()
     {
-    float num= 0;
-        foreach (var obj in levelWaves)
-        {
-        num = obj.increaseEnemyHealthDifficultyRate;
+        float num= 0;
+        foreach (var obj in levelWaves) {
+            if (obj.level == GlobalValue.levelPlaying) {
+                num = obj.increaseEnemyHealthDifficultyRate;
+                break;
+            }
         }
         return num;
     }
     public float IncreaseEnemyAmountDifficultyRate()
     {
-    float num= 0;
-        foreach (var obj in levelWaves)
-        {
-        num = obj.increaseEnemyAmountDifficultyRate;
+        float num= 0;
+        foreach (var obj in levelWaves) {
+            if (obj.level == GlobalValue.levelPlaying) {
+                num = obj.increaseEnemyAmountDifficultyRate;
+                break;
+            }
         }
         return num;
     }
     public float IncreaseEnemyWaitDifficultyRate()
     {
-    float num= 0;
-        foreach (var obj in levelWaves)
-        {
-        num = obj.increaseEnemyWaitDifficultyRate;
+        float num= 0;
+        foreach (var obj in levelWaves) {
+            if (obj.level == GlobalValue.levelPlaying) {
+                num = obj.increaseEnemyWaitDifficultyRate;
+                break;
+            }
         }
         return num;
     }
     public float InitialWaitAmount()
     {
-    float num= 0;
-        foreach (var obj in levelWaves)
-        {
-        num = obj.initialWaitAmount;
+        float num= 0;
+        foreach (var obj in levelWaves) {
+            if (obj.level == GlobalValue.levelPlaying) {
+                num = obj.initialWaitAmount;
+                break;
+            }
         }
         return num;
     }
@@ -129,6 +141,27 @@ public class GameLevelSetup : MonoBehaviour
         return null;
     }
 
+    public bool NightMode()
+    {
+        foreach (var obj in levelWaves)
+        {
+            if (obj.level == GlobalValue.levelPlaying)
+                return obj.nightMode;
+        }
+        return false;
+    }
+
+    public float NightModeXpMultiplier()
+    {
+        foreach (var obj in levelWaves)
+        {
+            if (obj.level == GlobalValue.levelPlaying)
+                return obj.nightMultiplierFixedAmount;
+        }
+
+        return 1;
+    }
+    
     public int getTotalLevels()
     {
         return levelWaves.Count;
@@ -154,3 +187,4 @@ public class GameLevelSetup : MonoBehaviour
         // }
     }
 }
+

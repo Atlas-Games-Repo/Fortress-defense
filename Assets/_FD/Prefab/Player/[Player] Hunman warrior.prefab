@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: -1170433896868461832}
   m_Layer: 8
   m_Name: '[Player] Hunman warrior'
-  m_TagString: Untagged
+  m_TagString: Warrior
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -264,6 +264,7 @@ MonoBehaviour:
   upgradedCharacterID: {fileID: -8493228012531445255, guid: e651ffb730e30f9469eae6a4cce63b52,
     type: 3}
   enemyType: 0
+  is_boss: 0
   useGravity: 0
   gravity: 35
   walkSpeed: 1
@@ -284,7 +285,13 @@ MonoBehaviour:
   randomHitPoint: {x: 0.2, y: 0.2}
   randomBloodPuddlePoint: {x: 0.5, y: 0.25}
   healthBarOffset: {x: 0, y: 1}
+  AutoHealthBarOffset: 0.2
+  IsAutoHealthBar: 1
   enemyState: 0
+  weaknessMultiplier: 1
+  strengthMultiplier: 1
+  weakness: 0
+  strength: 0
   canBeFreeze: 1
   dieFrozenFX: {fileID: 0}
   canBeBurn: 1
@@ -305,6 +312,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: d828c6f696d736348b98d90b6aa3fcb9, type: 3}
   soundDieBlowVol: 0.5
   soundDieBlow: []
+  BossMusic: {fileID: 0}
   soundSpawnVol: 0.5
   soundSpawn: []
   currentHealth: 0
@@ -312,9 +320,24 @@ MonoBehaviour:
   checkTarget: {fileID: 0}
   isPlayerDetected: 0
   delayChasePlayerWhenDetect: 0
+  is_spine: 0
+  skeletonAnimation: {fileID: 0}
+  magnet: 0
+  magnetPos: {x: 0, y: 0, z: 0}
+  magnetAttractionSpeed: 0
+  minMagnetDistance: 1
   velocity: {x: 0, y: 0, z: 0}
   controller: {fileID: 0}
   is_targeted: 0
+  spawnFromUnderground: 0
+  undergroundSandPile: {fileID: 0}
+  characterSprites: []
+  undergroundPileScale: 1
+  climbingTime: 1
+  maskYScale: 2
+  climbDepth: 1
+  xOffset: 0.3
+  secondaryHeight: 0.8
 --- !u!114 &4269282523560146207
 MonoBehaviour:
   m_ObjectHideFlags: 0

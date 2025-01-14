@@ -11,10 +11,13 @@ using System.IO;
 using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using UnityEngine.Android;
+using UnityEditor;
+using UnityEngine.AI;
 
 public class APIManager : MonoBehaviour
 {
     public static APIManager instance;
+    public string timeApiUrl = "https://worldtimeapi.org/api/timezone/Asia/Tehran";
     public string BASE_URL = "https://hokm-url.herokuapp.com", assetbundle_dir = "DownloadedBundles";
     public static readonly string GAME_ID = "442";
     public bool IS_DEBUG = true;
@@ -58,17 +61,23 @@ public class APIManager : MonoBehaviour
     // Start is called before the first frame update
     public async void RunStatus(string message, Color? color = null)
     {
-        Transform root = GameObject.FindGameObjectWithTag("Canves").transform;
+        GameObject top_parent = GameObject.FindGameObjectWithTag("StatusCanvas");
+        if (!top_parent) return;
+        GameObject root_parent = top_parent.transform.GetChild(0).gameObject;
+        Transform root = top_parent.transform.GetChild(0).GetChild(0).GetChild(0);
+        if (!root_parent.activeInHierarchy) root_parent.SetActive(true);
+        float added_delay = root.childCount;
         GameObject obj = Instantiate(status, root, false);
-        obj.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = message;
+        obj.GetComponentInChildren<RTLTMPro.RTLTextMeshPro>().text = message;
         if (color != null)
             obj.GetComponent<Image>().color = (Color)color;
-        await DestroyDelay(obj, status_destroy);
+        await DestroyDelay(obj, status_destroy + added_delay, root);
     }
-    public async Task DestroyDelay(GameObject obj, float delay)
+    public async Task DestroyDelay(GameObject obj, float delay, Transform root)
     {
         await Task.Delay((int)delay * 1000);
         DestroyImmediate(obj);
+        if (root.childCount <= 0) root.transform.parent.parent.gameObject.SetActive(false);
     }
     public IEnumerator LoadAsynchronously()
     {
@@ -88,16 +97,16 @@ public class APIManager : MonoBehaviour
     public async Task<AssetBundleUpdateResponse> Check_for_updates(string type = null)
     {
         string param = type != null ? $"?type={type}" : "";
-        return await Get<AssetBundleUpdateResponse>(route: $"/updates{param}", auth_token: User.Token);
+        return await Get<AssetBundleUpdateResponse>(route: $"/updates{param}", auth_token: User.Token, custom_message: NetworkStatusError.COULDNT_GET_UPDATES);
     }
     public async Task Updates_achivement(int status = 0, string id = "0")
     {
         string param = new AchievementUpdateModel(_id: id, _status: status).ToParams;
         await Get<object>(route: "/achivements/add", auth_token: User.Token, parameters: param);
     }
-    public async Task<AchievementModel[]> Get_achivements()
+    public async Task<AchievementModel> Get_achivements()
     {
-        return await Get<AchievementModel[]>(route: "/achivements", auth_token: User.Token);
+        return await Get<AchievementModel>(route: "/achivements", auth_token: User.Token);
     }
     public async Task DownloadUpdate(string name, string address, IProgress<float> progress)
     {
@@ -105,13 +114,17 @@ public class APIManager : MonoBehaviour
     }
     public async Task<AuthenticationResponse> Authenticate(Authentication auth)
     {
-        AuthenticationResponse res = await Get<AuthenticationResponse>(route: "/user/login", parameters: auth.ToParams);
-        RunStatus(res.message, CoolColor);
+        AuthenticationResponse res = await Get<AuthenticationResponse>(route: "/user/login", parameters: auth.ToParams, custom_message: NetworkStatusError.FAIL_LOGIN);
+        RunStatus(NetworkStatusError.SUCCESSFUL_LOGIN, CoolColor);
         return res;
     }
     public async Task<UserResponse> Check_token()
     {
-        UserResponse res = await Get<UserResponse>(route: "/user/details", auth_token: User.Token);
+        UserResponse res = await Get<UserResponse>(route: "/user/details", auth_token: User.Token, custom_message: NetworkStatusError.TOKEN_LOGIN_FAIL);
+        return res;
+    }
+    public async Task<UserResponse> GetRXP() {
+        UserResponse res = await Get<UserResponse>(route: "/user/xp", parameters:$"?game_id={GAME_ID}" ,auth_token: User.Token, custom_message: NetworkStatusError.TOKEN_LOGIN_FAIL);
         return res;
     }
 
@@ -120,7 +133,7 @@ public class APIManager : MonoBehaviour
         return await Get<UserResponse>(
         route: "/user/update",
         parameters: userdata.ToParams,
-        auth_token: User.Token);
+        auth_token: User.Token, custom_message: NetworkStatusError.USER_UPDATE_FAIL);
     }
 
     public async Task<Sprite> Get_rofile_picture(string url)
@@ -130,12 +143,54 @@ public class APIManager : MonoBehaviour
         return Sprite.Create(texture, rec, new Vector2(0, 0), 1);
     }
 
+    public async Task<LeaderBoardResponseModel> Get_leader_board()
+    {
+        LeaderBoardParams param = new LeaderBoardParams {
+            game_id = GAME_ID,
+            type = "all"
+        };
+        return await Get<LeaderBoardResponseModel>(route: "/games/rankings", auth_token: User.Token,parameters:param.ToParams);
+    }
+
+   public async Task<TimeAndDateResponseModel> GetCurrentDateAndTime()
+    {
+        using (UnityWebRequest www = UnityWebRequest.Get(timeApiUrl))
+        {
+            var asyncOperation = www.SendWebRequest();
+            while (!asyncOperation.isDone)
+            {
+                await Task.Delay(100);
+            }
+
+            if (www.result != UnityWebRequest.Result.Success)
+            {
+                Debug.Log("Failed to get time: " + www.error);
+                TimeAndDateResponseModel time = new TimeAndDateResponseModel();
+                time.datetime = DateTime.Now.ToString();
+                return new TimeAndDateResponseModel();
+            }
+            else
+            {
+                string jsonResponse = www.downloadHandler.text;
+                TimeAndDateResponseModel responseModel = JsonConvert.DeserializeObject<TimeAndDateResponseModel>(jsonResponse);
+                return responseModel;
+            }
+        }
+    }
+
     public async Task<GemResponseModel> Request_Gem(GemRequestModel parames = null)
     {
         return await Get<GemResponseModel>(
         route: "/user/gem",
         parameters: parames == null ? new GemRequestModel().ToParams : parames.ToParams,
-        auth_token: User.Token);
+        auth_token: User.Token, custom_message: NetworkStatusError.UNKNOWN_ERROR);
+    }
+    public async Task<RxpRequestModel> Request_Rxp(RxpRequestModel parames = null)
+    {
+        return await Get<RxpRequestModel>(
+            route: "/user/xp",
+            parameters: parames == null ? new RxpRequestModel().ToParams : parames.ToParams,
+            auth_token: User.Token, custom_message: NetworkStatusError.UNKNOWN_ERROR);
     }
     #endregion
 
@@ -186,7 +241,7 @@ public class APIManager : MonoBehaviour
 
         }
     }
-    private async Task<T> Get<T>(string route, string parameters = null, Dictionary<string, string> headers = null, string auth_token = "null")
+    private async Task<T> Get<T>(string route, string parameters = null, Dictionary<string, string> headers = null, string auth_token = "null", string custom_message = null)
     {
         if (headers == null)
             headers = new Dictionary<string, string>();
@@ -216,10 +271,10 @@ public class APIManager : MonoBehaviour
             }
             catch (System.Exception)
             {
-                RunStatus(req.error, ErrorColor);
+                RunStatus(NetworkStatusError.UNKNOWN_ERROR, ErrorColor);
                 throw;
             }
-            RunStatus(req.error);
+            RunStatus(custom_message != null ? custom_message : NetworkStatusError.UNKNOWN_ERROR, ErrorColor);
             throw new System.Net.WebException(message: req.error);
         }
         else
@@ -230,9 +285,9 @@ public class APIManager : MonoBehaviour
                 // res = JsonUtility.FromJson<T>(Clean_json(req.downloadHandler.text));
                 res = JsonConvert.DeserializeObject<T>(Clean_json(req.downloadHandler.text));
             }
-            catch (System.Exception e)
+            catch (System.Exception)
             {
-                RunStatus(e.Message, ErrorColor);
+                RunStatus(NetworkStatusError.UNKNOWN_ERROR, ErrorColor);
                 throw;
             }
             if (tokenSource.IsCancellationRequested)
@@ -248,7 +303,7 @@ public class APIManager : MonoBehaviour
         {
             headers = new Dictionary<string, string>();
         }
-        using UnityWebRequest req = UnityWebRequest.Post(uri: Base_url + route, postData: data);
+        using UnityWebRequest req = UnityWebRequest.PostWwwForm(uri: Base_url + route, form: data);
         foreach (KeyValuePair<string, string> item in headers)
         {
             req.SetRequestHeader(item.Key, item.Value);

@@ -19,9 +19,9 @@ GameObject:
   - component: {fileID: -3391329345290087093}
   - component: {fileID: 2959593727705545868}
   - component: {fileID: 1379333207073501194}
-  m_Layer: 10
-  m_Name: '[Enemy] 6 Evil Wolf'
-  m_TagString: Untagged
+  m_Layer: 8
+  m_Name: '[ Enemy ] 6 Evil Wolf'
+  m_TagString: Warrior
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -129,7 +129,7 @@ MonoBehaviour:
   checkTargetType: 0
   targetLayer:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 10
   checkPoint: {fileID: 3505094655897797194}
   detectDistance: 5
   width: 2.65
@@ -152,11 +152,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradedCharacterID: {fileID: 0}
   enemyType: 0
+  is_boss: 0
   useGravity: 0
   gravity: 35
   walkSpeed: 1
   attackType: 1
-  startBehavior: 3
+  startBehavior: 4
   dieBehavior: 0
   hitBehavior: 0
   spawnDelay: 1
@@ -171,8 +172,14 @@ MonoBehaviour:
   explosionFX: []
   randomHitPoint: {x: 0.2, y: 0.2}
   randomBloodPuddlePoint: {x: 0.5, y: 0.25}
-  healthBarOffset: {x: 0, y: 1.5}
+  healthBarOffset: {x: 0, y: 1}
+  AutoHealthBarOffset: 0.1
+  IsAutoHealthBar: 1
   enemyState: 0
+  weaknessMultiplier: 1
+  strengthMultiplier: 1
+  weakness: 0
+  strength: 0
   canBeFreeze: 1
   dieFrozenFX: {fileID: 0}
   canBeBurn: 1
@@ -193,6 +200,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: d828c6f696d736348b98d90b6aa3fcb9, type: 3}
   soundDieBlowVol: 0.5
   soundDieBlow: []
+  BossMusic: {fileID: 0}
   soundSpawnVol: 0.5
   soundSpawn: []
   currentHealth: 0
@@ -200,9 +208,30 @@ MonoBehaviour:
   checkTarget: {fileID: 0}
   isPlayerDetected: 0
   delayChasePlayerWhenDetect: 0
+  is_spine: 0
+  skeletonAnimation: {fileID: 0}
+  magnet: 0
+  magnetPos: {x: 0, y: 0, z: 0}
+  magnetAttractionSpeed: 0
+  minMagnetDistance: 1
   velocity: {x: 0, y: 0, z: 0}
   controller: {fileID: 0}
   is_targeted: 0
+  spawnFromUnderground: 0
+  undergroundSandPile: {fileID: 2967936131171522836, guid: a8798ad5383bdbd4ca79e8cee187891a,
+    type: 3}
+  characterSprites:
+  - {fileID: 3709939928656598729}
+  undergroundPileScale: 1.5
+  climbingTime: 1
+  maskYScale: 3
+  climbDepth: 2
+  xOffset: 0
+  secondaryHeight: 2
+  xDistanceFromEnemy: 1.5
+  holeAnimationTime: 0.5
+  warriorTag: Warrior
+  shadow: {fileID: 0}
 --- !u!114 &7873376231808734327
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -217,7 +246,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetLayer:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 10
   checkPoint: {fileID: 4142133550533764231}
   maxTargetPerHit: 1
   radiusCheck: 0.5
@@ -450,12 +479,12 @@ PrefabInstance:
     - target: {fileID: 5302841713383904977, guid: 4c79c1b537c6fcf4da407c934d03d329,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.015
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5302841713383904977, guid: 4c79c1b537c6fcf4da407c934d03d329,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.32
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5302841713383904977, guid: 4c79c1b537c6fcf4da407c934d03d329,
         type: 3}

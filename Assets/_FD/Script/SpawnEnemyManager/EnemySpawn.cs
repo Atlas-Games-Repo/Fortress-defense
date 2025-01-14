@@ -25,4 +25,5 @@ public class EnemySpawn
     public float BossScale = 1;
     public int BossMinExp = 10;
     public int BossMaxExp = 20;
+    public bool spawnFromUnderground = false;
 }

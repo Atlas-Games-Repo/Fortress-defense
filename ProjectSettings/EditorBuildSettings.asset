@@ -20,13 +20,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Atlas games/Scene/Playing atlas.unity
     guid: 8a41dee0f5a10ec439d12c2324e7b671
-  - enabled: 1
-    path: Assets/Atlas games/Scene/Playing atlas endless.unity
-    guid: c0ea33f868fca3b4aa3eebf8b513d6a7
   m_configObjects:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 0a1bb26ca76efc745bb887665d581e64,
       type: 2}
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000,
       guid: 07b894c0c99faad40a27b158782e2ab7, type: 2}
-    com.unity.addressableassets: {fileID: 11400000, guid: 513a3ffd8f630be48b0069bdf06a32d7,
+    com.unity.addressableassets: {fileID: 11400000, guid: ba3f605258668db449731e24da3575e9,
       type: 2}
+  m_UseUCBPForAssetBundles: 0

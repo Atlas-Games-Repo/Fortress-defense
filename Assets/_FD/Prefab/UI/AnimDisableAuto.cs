@@ -29,6 +29,8 @@ public class AnimDisableAuto : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Disable () {
+		if (gameObject.activeInHierarchy)
+			gameObject.transform.position = new Vector3(0, 100, 0);
 		gameObject.SetActive (false);
 	}
 }

@@ -1,0 +1,128 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3723579410450012497
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3723579410450012524}
+  - component: {fileID: 3723579410450012526}
+  - component: {fileID: 3723579410450012527}
+  m_Layer: 0
+  m_Name: AchivementListener V2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3723579410450012524
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3723579410450012497}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.0631223, y: 0.5644914, z: -0.5269767}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3723579410450012526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3723579410450012497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69b51c9107a91bb4caab83f861dee1f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InitialDelaySeconds: 0.1
+  ListenerTickSeconds: 1
+  achievements: []
+--- !u!114 &3723579410450012527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3723579410450012497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4379addc07b082148825b901d741add9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: {fileID: 11400000, guid: 8dd0cf85c1ed9604a9395d0888c48726, type: 2}
+  InitialDelaySeconds: 0.2
+  ListenerTickSeconds: 3
+  HoldExpiredScheduleMinutes: 1440
+  Probability:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: -0.0026855469
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 1
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.16075584
+    - serializedVersion: 3
+      time: 0.6905903
+      value: 0.6003064
+      inSlope: 2.9357188
+      outSlope: 2.9357188
+      tangentMode: 0
+      weightedMode: 3
+      inWeight: 0.15658017
+      outWeight: 0.26932192
+    - serializedVersion: 3
+      time: 0.92786545
+      value: 1.6691834
+      inSlope: 7.755716
+      outSlope: 7.755716
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 3
+      inSlope: 37.61341
+      outSlope: 37.61341
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.13609768
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  Schedules:
+  - name: Daily
+    DurationMinutes: 1440
+    NumberOfMissions: 4
+    type: 0
+    status: 0
+  - name: Weekly
+    DurationMinutes: 1440
+    NumberOfMissions: 4
+    type: 1
+    status: 0
+  - name: OneTime
+    DurationMinutes: 10
+    NumberOfMissions: 1
+    type: 2
+    status: 0
+  - name: Permenent
+    DurationMinutes: 10
+    NumberOfMissions: 0
+    type: 3
+    status: 0

@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf331c63fe42e8c43bf2d5bf41a4c6d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentRxp: 0
   levelStarGot: 0
   layerGround:
     serializedVersion: 2
@@ -55,7 +56,7 @@ MonoBehaviour:
   layerPlayer:
     serializedVersion: 2
     m_Bits: 256
-  currentExp: 50
+  currentExp: 100
   enemyAlives: []
   listEnemyChasingPlayer: []
 --- !u!114 &6168901444282779536
@@ -96,5 +97,14 @@ MonoBehaviour:
   - {fileID: 6548707270156744103, guid: 92311b3fd0727054eb1d46064895ac98, type: 3}
   - {fileID: 7925112798475830710, guid: 8760089d75b5145449501330a73da2f0, type: 3}
   - {fileID: 2123164202128918392, guid: adca490b7ce5c444f83d0afe52a5a33a, type: 3}
-  objectsToPreloadTimes: 140000000a0000000a0000000a0000000a00000014000000140000001400000005000000
+  - {fileID: 7587624716690234243, guid: 853977de47235fa45b10e8c88e637b1c, type: 3}
+  - {fileID: 7587624716690234243, guid: 76d709a03b2c9414da9f0782fc48e133, type: 3}
+  - {fileID: 8533150985275746665, guid: f4a54aeafa9375044bc97dda4de11021, type: 3}
+  - {fileID: 8533150985275746665, guid: c0ca0fb600496fe4d834ac9940cd1d43, type: 3}
+  - {fileID: 6298002723083727019, guid: be3a2356854f35e489126ba56638cb9c, type: 3}
+  - {fileID: 8533150985275746665, guid: dd6eca2a49a3ca94eaf7c3cfb4210c65, type: 3}
+  - {fileID: 4728083717519161507, guid: 98fb50e0f09bbc844992fd16dd1bd69e, type: 3}
+  - {fileID: 5432492665860490945, guid: 872f55e59e02b4e42a3b8e3dea40bb6a, type: 3}
+  - {fileID: 6320712709451049652, guid: e5955f5f05a35a0499dea207025e16b9, type: 3}
+  objectsToPreloadTimes: 140000000a0000000a0000000a0000000a00000014000000140000001400000005000000140000001400000014000000140000001400000014000000140000001400000004000000
   hideObjectsInHierarchy: 1

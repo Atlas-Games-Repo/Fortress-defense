@@ -6,13 +6,15 @@ using UnityEngine.UI;
 public class MainMenuHomeScene : MonoBehaviour
 {
     public static MainMenuHomeScene Instance;
+    public GameObject HomeUI;
     public GameObject MapUI;
     public GameObject ShopUI;
     public GameObject TrophyUI,TrophyUIV2;
-    public GameObject EventUI, CoinShopUI, UpgradeUI;
-
+    public GameObject EventUI, CoinShopUI, UpgradeUI,LeaderBoardUI;
+    public GameObject StoreUI;
     public GameObject Loading;
     public GameObject Settings;
+    public GameObject inventory;
     public string facebookLink;
     public string twitterLink = "https://twitter.com/";
     public string playingLevelName = "Playing atlas";
@@ -27,6 +29,8 @@ public class MainMenuHomeScene : MonoBehaviour
     void Awake()
     {
         Instance = this;
+        if (HomeUI)
+            HomeUI.SetActive(false);
         if (Loading != null)
             Loading.SetActive(false);
         if (MapUI != null)
@@ -35,7 +39,18 @@ public class MainMenuHomeScene : MonoBehaviour
             Settings.SetActive(false);
         if (ShopUI)
             ShopUI.SetActive(false);
-
+        if (TrophyUI)
+            TrophyUI.SetActive(false);
+        if (TrophyUIV2)
+            TrophyUIV2.SetActive(false);
+        if (EventUI)
+            EventUI.SetActive(false);
+        if (CoinShopUI)
+            CoinShopUI.SetActive(false);
+        if (UpgradeUI)
+            UpgradeUI.SetActive(false);
+        if (LeaderBoardUI)
+            LeaderBoardUI.SetActive(false);
     }
 
     public void LoadScene()
@@ -66,6 +81,8 @@ public class MainMenuHomeScene : MonoBehaviour
             SoundManager.Instance.PauseMusic(false);
             SoundManager.PlayMusic(SoundManager.Instance.musicsGame);
         }
+        yield return new WaitForSeconds(1);
+        HomeUI.SetActive(true);
     }
 
     void Update()
@@ -84,6 +101,20 @@ public class MainMenuHomeScene : MonoBehaviour
         StartCoroutine(OpenMapCo(open));
     }
 
+    public void OpenInventory(bool open)
+    {
+        SoundManager.Click();
+        StartCoroutine(OpenInventoryCo(open));
+    }
+
+    IEnumerator OpenInventoryCo(bool open)
+    {
+        yield return null;
+        BlackScreenUI.instance.Show(0.2f);
+        inventory.SetActive(open);
+        inventory.GetComponent<Inventory>().InitSlots();
+        BlackScreenUI.instance.Hide(0.2f);
+    }
     IEnumerator OpenMapCo(bool open)
     {
         yield return null;
@@ -114,6 +145,13 @@ public class MainMenuHomeScene : MonoBehaviour
     {
         SoundManager.Click();
         Settings.SetActive(open);
+    }
+
+    public void Store(bool open)
+    {
+        SoundManager.Click();
+        StoreUI.SetActive(open);
+        StoreUI.GetComponent<Shop>().OpenMenu("features");
     }
     public void OpenUpgradeUI(bool open)
     {
@@ -156,6 +194,13 @@ public class MainMenuHomeScene : MonoBehaviour
     {
         SoundManager.Click();
         TrophyUI.SetActive(open);
+    }
+
+    public void OpenLeaderBoard(bool open)
+    {
+        LeaderBoard leaderBoard = LeaderBoardUI.GetComponent<LeaderBoard>();
+        LeaderBoardUI.SetActive(open);
+        if(!open) leaderBoard.ClearList();
     }
     public void OpenTrophyV2(bool open)
     {

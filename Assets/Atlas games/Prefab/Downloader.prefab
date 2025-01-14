@@ -84,7 +84,7 @@ GameObject:
   - component: {fileID: 248638212945068529}
   m_Layer: 5
   m_Name: Slider
-  m_TagString: Untagged
+  m_TagString: Slider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -108,8 +108,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -14.76947, y: 34.92}
-  m_SizeDelta: {x: 30.3389, y: 20}
+  m_AnchoredPosition: {x: -14.769531, y: 42.017}
+  m_SizeDelta: {x: 30.339, y: 34.194}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &248638212945068529
 MonoBehaviour:
@@ -150,7 +150,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 248638214311057180}
   m_FillRect: {fileID: 248638213455601652}
   m_HandleRect: {fileID: 248638214311057183}
@@ -271,7 +271,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -0.6085205, y: 0}
+  m_AnchoredPosition: {x: -0.6086426, y: 0}
   m_SizeDelta: {x: 50.7564, y: 8.841}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &248638213455601650
@@ -346,8 +346,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -466.3, y: 67.6}
-  m_SizeDelta: {x: -941.58997, y: 36.1595}
+  m_AnchoredPosition: {x: -651.722, y: 99.155}
+  m_SizeDelta: {x: -1312.434, y: 80.081}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &248638213678451953
 CanvasRenderer:
@@ -379,8 +379,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: Connecting...
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 1c9fdfd94ee20884a9f6c903107d523b, type: 2}
+  m_sharedMaterial: {fileID: 1076306831410246551, guid: 1c9fdfd94ee20884a9f6c903107d523b,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -404,8 +405,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 13
-  m_fontSizeBase: 13
+  m_fontSize: 55.8
+  m_fontSizeBase: 55.8
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -517,8 +518,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -23.700317, y: 0}
-  m_SizeDelta: {x: 86.6667, y: -5.1852}
+  m_AnchoredPosition: {x: -23.70044, y: -0}
+  m_SizeDelta: {x: 86.667, y: -23.355}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &248638214311057181
 CanvasRenderer:

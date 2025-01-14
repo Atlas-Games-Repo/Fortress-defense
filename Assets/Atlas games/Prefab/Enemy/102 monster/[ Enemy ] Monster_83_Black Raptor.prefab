@@ -28,7 +28,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3697426553599540031}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1315889781
 GameObject:
@@ -58,7 +58,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3697426553599540031}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3697426553599540029
 GameObject:
@@ -97,11 +97,11 @@ Transform:
   m_LocalPosition: {x: -5.63, y: -2.64, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 5302841712264848057}
   - {fileID: 2794050095396620553}
   - {fileID: 3991322440258641104}
   - {fileID: 781253066}
   - {fileID: 1315889782}
-  - {fileID: 5302841712264848057}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -223,6 +223,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradedCharacterID: {fileID: 0}
   enemyType: 0
+  is_boss: 0
   useGravity: 0
   gravity: 35
   walkSpeed: 1
@@ -242,8 +243,14 @@ MonoBehaviour:
   explosionFX: []
   randomHitPoint: {x: 0.2, y: 0.2}
   randomBloodPuddlePoint: {x: 0.5, y: 0.25}
-  healthBarOffset: {x: 0, y: 1.5}
+  healthBarOffset: {x: 0, y: 1}
+  AutoHealthBarOffset: 0.1
+  IsAutoHealthBar: 1
   enemyState: 0
+  weaknessMultiplier: 1
+  strengthMultiplier: 1
+  weakness: 0
+  strength: 0
   canBeFreeze: 1
   dieFrozenFX: {fileID: 0}
   canBeBurn: 1
@@ -264,6 +271,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: d828c6f696d736348b98d90b6aa3fcb9, type: 3}
   soundDieBlowVol: 0.5
   soundDieBlow: []
+  BossMusic: {fileID: 0}
   soundSpawnVol: 0.5
   soundSpawn: []
   currentHealth: 0
@@ -272,10 +280,28 @@ MonoBehaviour:
   isPlayerDetected: 0
   delayChasePlayerWhenDetect: 0
   is_spine: 1
-  skeletonAnimation: {fileID: 0}
+  skeletonAnimation: {fileID: 3416684569861755448}
+  magnet: 0
+  magnetPos: {x: 0, y: 0, z: 0}
+  magnetAttractionSpeed: 0
+  minMagnetDistance: 1
   velocity: {x: 0, y: 0, z: 0}
   controller: {fileID: 0}
   is_targeted: 0
+  spawnFromUnderground: 0
+  undergroundSandPile: {fileID: 2967936131171522836, guid: a8798ad5383bdbd4ca79e8cee187891a,
+    type: 3}
+  characterSprites: []
+  undergroundPileScale: 2.5
+  climbingTime: 1
+  maskYScale: 3
+  climbDepth: 2
+  xOffset: 0
+  secondaryHeight: 2
+  xDistanceFromEnemy: 1.5
+  holeAnimationTime: 0.5
+  warriorTag: Warrior
+  shadow: {fileID: 8835841617553682194}
 --- !u!114 &1950496936
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -382,7 +408,7 @@ Transform:
   m_LocalScale: {x: -0.4, y: 0.4, z: 0.4}
   m_Children: []
   m_Father: {fileID: 3697426553599540031}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &205410057193105890
 MeshFilter:
@@ -499,7 +525,7 @@ Transform:
   m_LocalScale: {x: 0.9362719, y: 0.39972773, z: 1.6161}
   m_Children: []
   m_Father: {fileID: 3697426553599540031}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2101254386559981091
 SpriteRenderer:
@@ -564,45 +590,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: target
       objectReference: {fileID: 0}
-    - target: {fileID: 1438046594576658157, guid: 4c79c1b537c6fcf4da407c934d03d329,
+    - target: {fileID: 5302841713383904977, guid: 4c79c1b537c6fcf4da407c934d03d329,
         type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 3457596577293859471, guid: 4c79c1b537c6fcf4da407c934d03d329,
-        type: 3}
-      propertyPath: m_Enabled
+      propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5302841713383904977, guid: 4c79c1b537c6fcf4da407c934d03d329,
         type: 3}
-      propertyPath: m_RootOrder
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5302841713383904977, guid: 4c79c1b537c6fcf4da407c934d03d329,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.32914603
-      objectReference: {fileID: 0}
-    - target: {fileID: 5302841713383904977, guid: 4c79c1b537c6fcf4da407c934d03d329,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.31058493
-      objectReference: {fileID: 0}
-    - target: {fileID: 5302841713383904977, guid: 4c79c1b537c6fcf4da407c934d03d329,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.4977
-      objectReference: {fileID: 0}
-    - target: {fileID: 5302841713383904977, guid: 4c79c1b537c6fcf4da407c934d03d329,
-        type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.935
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5302841713383904977, guid: 4c79c1b537c6fcf4da407c934d03d329,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.947
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5302841713383904977, guid: 4c79c1b537c6fcf4da407c934d03d329,
         type: 3}

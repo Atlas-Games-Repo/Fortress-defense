@@ -12,20 +12,22 @@ on:
 jobs:
     buildIOS:
         name: Build for IOS
-        runs-on: ubuntu-latest
+        runs-on:
+            group: Default
+            labels: ubuntu
         steps:
-            - name: Free Disk Space (Ubuntu)
-              uses: jlumbroso/free-disk-space@main
-              with:
-                  dotnet: false
-            - uses: actions/checkout@v3
+            # - name: Free Disk Space (Ubuntu)
+            #   uses: jlumbroso/free-disk-space@main
+            #   with:
+            #       dotnet: false
+            - uses: actions/checkout@v4
               with:
                   lfs: true
             - uses: actions/cache@v3
               with:
                   path: Library
                   key: Library-IOS
-            - uses: game-ci/unity-builder@v2
+            - uses: game-ci/unity-builder@v4
               env:
                   UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
                   UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}

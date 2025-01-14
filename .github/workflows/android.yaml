@@ -12,13 +12,15 @@ on:
 jobs:
     buildAndroid:
         name: Build for Android
-        runs-on: ubuntu-latest
+        runs-on:
+            group: Default
+            labels: ubuntu
         steps:
-            - name: Free Disk Space (Ubuntu)
-              uses: jlumbroso/free-disk-space@main
-              with:
-                  android: false
-                  dotnet: false
+            # - name: Free Disk Space (Ubuntu)
+            #   uses: jlumbroso/free-disk-space@main
+            #   with:
+            #       android: false
+            #       dotnet: false
             - uses: actions/checkout@v3
               with:
                   lfs: true

@@ -10,4 +10,5 @@ public interface IListener  {
 	void IOnRespawn ();
 	void IOnStopMovingOn ();
 	void IOnStopMovingOff ();
+	bool IEnabled();
 }

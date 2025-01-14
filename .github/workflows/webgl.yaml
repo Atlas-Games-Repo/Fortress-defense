@@ -12,12 +12,14 @@ on:
 jobs:
     build:
         name: Build for WebGL
-        runs-on: ubuntu-latest
+        runs-on:
+            group: Default
+            labels: ubuntu
         steps:
-            - name: Free Disk Space (Ubuntu)
-              uses: jlumbroso/free-disk-space@main
-              with:
-                  dotnet: false
+            # - name: Free Disk Space (Ubuntu)
+            #   uses: jlumbroso/free-disk-space@main
+            #   with:
+            #       dotnet: false
             - uses: actions/checkout@v3
               with:
                   lfs: true

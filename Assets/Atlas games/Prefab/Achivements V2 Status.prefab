@@ -67,8 +67,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Achivement unlocked
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: f3c38385e6917074e98b5c2d7df8509d, type: 2}
-  m_sharedMaterial: {fileID: 1682951562194340939, guid: f3c38385e6917074e98b5c2d7df8509d,
+  m_fontAsset: {fileID: 11400000, guid: 1c9fdfd94ee20884a9f6c903107d523b, type: 2}
+  m_sharedMaterial: {fileID: 1076306831410246551, guid: 1c9fdfd94ee20884a9f6c903107d523b,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}

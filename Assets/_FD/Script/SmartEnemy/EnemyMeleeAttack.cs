@@ -21,7 +21,25 @@ public class EnemyMeleeAttack : MonoBehaviour
     public float soundAttacksVol = 0.5f;
     public AudioClip[] soundAttacks;
     WeaponEffect hasWeaponEffect;
+    [Space(3)] [Header("Night Mode")] public float customNightMultiplier = 2f;
+    public bool useCustomNightMultiplierOnly = false;
 
+    void Start()
+    {
+        float initialDamage = dealDamage;
+        if (GameLevelSetup.Instance && GameLevelSetup.Instance.NightMode())
+        {
+            if (useCustomNightMultiplierOnly)
+            {
+                dealDamage = customNightMultiplier * initialDamage;
+            }
+            else
+            {
+                dealDamage = initialDamage * GameLevelSetup.Instance.NightModeXpMultiplier();
+            }
+        }
+    }
+    
     public bool AllowAction()
     {
         return Time.time - lastShoot > meleeRate;

@@ -45,6 +45,29 @@ public class User : MonoBehaviour
             UserResponse _UserProfile = UserProfile;
             _UserProfile.uxp += value;
             UserProfile = _UserProfile;
+          //  Update_Rxp(new UserUpdate(_gem: value));
+        }
+    }
+    public static int Rxp
+        {
+            get { return UserProfile.rxp; }
+            set
+            {
+                UserResponse _UserProfile = UserProfile;
+                _UserProfile.rxp += value;
+                UserProfile = _UserProfile;
+                Update_Rxp(value);
+            }
+        }
+
+    public static int RxpTotal
+    {
+        get { return UserProfile.rxpTotal; }
+        set
+        {
+            UserResponse _UserProfile = UserProfile;
+            _UserProfile.rxpTotal += value;
+            UserProfile = _UserProfile;
         }
     }
     public static int Level
@@ -66,6 +89,11 @@ public class User : MonoBehaviour
         await APIManager.instance.Request_Gem(new GemRequestModel(_amount: user.gem.ToString()));
         Get_User_Eeventually();
     }
+    private static async void Update_Rxp(int amount)
+    {
+        await APIManager.instance.Request_Rxp(new RxpRequestModel(_amount: amount.ToString()));
+        Get_User_Eeventually();
+    }
     public static void Get_User_Eeventually()
     {
         Get_user();
@@ -73,10 +101,13 @@ public class User : MonoBehaviour
     public static async void Get_user()
     {
         UserResponse user_response = await APIManager.instance.Check_token();
-        GemResponseModel gems_res = await APIManager.instance.Request_Gem();
-        user_response.gem = gems_res.gem;
+        UserResponse user_rxp_response = await APIManager.instance.GetRXP();
         user_response.coin = UserProfile.coin;
         user_response.uxp = UserProfile.uxp;
+        user_response.rxp = user_rxp_response.xp;
+        user_response.points = user_rxp_response.points;
+        user_response.rxpTotal = UserProfile.rxpTotal;
+        user_response.rank = user_rxp_response.rank;
         UserProfile = user_response;
     }
 

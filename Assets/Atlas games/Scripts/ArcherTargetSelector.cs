@@ -7,6 +7,8 @@ public class ArcherTargetSelector : MonoBehaviour, IGetTouchEvent
 {
     public void TouchEvent()
     {
+        if (GameManager.Instance.State != GameManager.GameState.Playing)
+            return;
         bool is_enable = gameObject.GetComponentInParent<Player_Archer>().is_manual_enable;
         if (is_enable)
         {

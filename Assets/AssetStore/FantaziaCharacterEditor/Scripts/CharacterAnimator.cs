@@ -70,7 +70,7 @@ public class CharacterAnimator : MonoBehaviour
                 Angle = 50;
             }
             GameObject newArrow = Instantiate(ArrowPrefab, ArrowStartingPosition, Quaternion.Euler(0, 0, 90 + Angle));
-            newArrow.GetComponent<Rigidbody2D>().velocity = new Vector2(Mathf.Cos(Angle*Mathf.PI/180), Mathf.Sin(Angle *  Mathf.PI/180)) *3200;
+            newArrow.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(Mathf.Cos(Angle*Mathf.PI/180), Mathf.Sin(Angle *  Mathf.PI/180)) *3200;
         }
 
     }

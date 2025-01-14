@@ -45,11 +45,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   beginSoundInMainMenu: {fileID: 8300000, guid: 51f0c54706b53c14c9c24bbd63bb18a6,
     type: 3}
-  musicsGame: {fileID: 8300000, guid: ef43e920f9d978c4c8688d90b1246736, type: 3}
-  musicsGameVolume: 0.3
+  musicsGame: {fileID: 8300000, guid: b42041cd306abf44ab6148296b422a61, type: 3}
+  BossMusicClip: {fileID: 8300000, guid: ddfa2d15f540e174781af6f74e3f4249, type: 3}
+  musicsGameVolume: 0.4
   soundClick: {fileID: 8300000, guid: 4484820e2beda6140b027c7a42b2932e, type: 3}
-  coinCollect: {fileID: 0}
-  soundVictory: {fileID: 8300000, guid: 6920882bc2bfc2d4595d612a0891086b, type: 3}
+  coinCollect: {fileID: 8300000, guid: 0362c1da574ac6342b542751cee14209, type: 3}
   soundFail: {fileID: 8300000, guid: 3b0d48abff6bdc94aba83798ec8c78e2, type: 3}
   soundPause: {fileID: 8300000, guid: 203bf418f47fbc04fb6d43ffc3c1d7d6, type: 3}
   soundShowStagePanel: {fileID: 8300000, guid: 8d7550fb5f5b1a041bcae5ee3b250a20, type: 3}
