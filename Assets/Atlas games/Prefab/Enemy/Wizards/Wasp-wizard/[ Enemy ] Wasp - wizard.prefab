@@ -369,6 +369,8 @@ MonoBehaviour:
   delayChasePlayerWhenDetect: 0
   is_spine: 0
   skeletonAnimation: {fileID: 0}
+  customNightMultiplier: 2
+  useCustomNightMultiplier: 0
   magnet: 0
   magnetPos: {x: 0, y: 0, z: 0}
   magnetAttractionSpeed: 0
@@ -410,6 +412,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coinGiveMin: 3
   coinGiveMax: 8
+  customNightMultiplier: 2
+  useCustomNightMultiplierOnly: 0
 --- !u!114 &1950496935
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -424,6 +428,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   expMin: 3
   expMax: 6
+  customNightMultiplier: 2
+  useCustomNightMultiplierOnly: 0
 --- !u!61 &1950496934
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -500,6 +506,8 @@ MonoBehaviour:
   multiShoot: 1
   multiShootRate: 0.2
   GunObj: {fileID: 0}
+  customNightMultiplier: 2
+  useCustomNightMultiplierOnly: 0
 --- !u!1 &3747221056220166742
 GameObject:
   m_ObjectHideFlags: 0

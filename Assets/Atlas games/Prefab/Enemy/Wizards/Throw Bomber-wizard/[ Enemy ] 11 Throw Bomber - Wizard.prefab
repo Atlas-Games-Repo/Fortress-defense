@@ -210,6 +210,8 @@ MonoBehaviour:
   delayChasePlayerWhenDetect: 0
   is_spine: 0
   skeletonAnimation: {fileID: 0}
+  customNightMultiplier: 2
+  useCustomNightMultiplier: 0
   magnet: 0
   magnetPos: {x: 0, y: 0, z: 0}
   magnetAttractionSpeed: 0
@@ -262,6 +264,8 @@ MonoBehaviour:
   onlyAttackTheFortrest: 1
   checkPoint: {fileID: 3784733293951656117}
   radiusDetectPlayer: 5
+  customNightMultiplier: 2
+  useCustomNightMultiplierOnly: 0
 --- !u!50 &7904260213264259600
 Rigidbody2D:
   serializedVersion: 4
@@ -297,6 +301,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coinGiveMin: 3
   coinGiveMax: 8
+  customNightMultiplier: 2
+  useCustomNightMultiplierOnly: 0
 --- !u!210 &7955261639405750052
 SortingGroup:
   m_ObjectHideFlags: 0
@@ -322,6 +328,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   expMin: 10
   expMax: 15
+  customNightMultiplier: 2
+  useCustomNightMultiplierOnly: 0
 --- !u!1 &4298942742117779602
 GameObject:
   m_ObjectHideFlags: 0

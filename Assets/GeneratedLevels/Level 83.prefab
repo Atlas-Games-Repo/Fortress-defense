@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3126616474673743519
+--- !u!1 &6056348686631943405
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,8 +8,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3588688942307075176}
-  - component: {fileID: 8865986286564891277}
+  - component: {fileID: 1139858410563348182}
+  - component: {fileID: 5777352024512849714}
   m_Layer: 0
   m_Name: Level 83
   m_TagString: Untagged
@@ -17,13 +17,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3588688942307075176
+--- !u!4 &1139858410563348182
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3126616474673743519}
+  m_GameObject: {fileID: 6056348686631943405}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -31,13 +31,13 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8865986286564891277
+--- !u!114 &5777352024512849714
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3126616474673743519}
+  m_GameObject: {fileID: 6056348686631943405}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 10855318d3b18864dac9125a2f68e835, type: 3}
@@ -45,82 +45,198 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemiesList: []
   type: 1
-  defaultExp: 300
+  defaultExp: 255
   Waves:
   - wait: 0
     enemySpawns:
     - wait: 0
-      enemy: {fileID: 3697426553599540029, guid: 0014a555699f68f4ab300b16913c9299,
+      enemy: {fileID: 3697426553599540029, guid: 2395704e03c7ea248b4e120a0486406d,
         type: 3}
-      numberEnemy: 14
-      rate: 1
+      numberEnemy: 3
+      rate: 0
       customHealth: 0
-      customSpeed: 0
+      customSpeed: 1
       customAttackDmg: 0
       boosType: 0
-      BossScale: 1.001
-      BossMinExp: 25
-      BossMaxExp: 50
+      BossScale: 0
+      BossMinExp: 0
+      BossMaxExp: 0
+      spawnFromUnderground: 0
+    - wait: 7
+      enemy: {fileID: 3697426553599540029, guid: 496f36c7d7ebb25429eba60ffb627e41,
+        type: 3}
+      numberEnemy: 2
+      rate: 0
+      customHealth: 0
+      customSpeed: 1
+      customAttackDmg: 0
+      boosType: 0
+      BossScale: 0
+      BossMinExp: 0
+      BossMaxExp: 0
+      spawnFromUnderground: 0
+    - wait: 7
+      enemy: {fileID: 3697426553599540029, guid: c843265a8e2a9aa4ab8c86fd025eed82,
+        type: 3}
+      numberEnemy: 2
+      rate: 0
+      customHealth: 0
+      customSpeed: 1
+      customAttackDmg: 0
+      boosType: 0
+      BossScale: 0
+      BossMinExp: 0
+      BossMaxExp: 0
+      spawnFromUnderground: 0
+    - wait: 7
+      enemy: {fileID: 3697426553599540029, guid: 752c447ac704a854d83d9f91bebf8ecd,
+        type: 3}
+      numberEnemy: 2
+      rate: 0
+      customHealth: 0
+      customSpeed: 1
+      customAttackDmg: 0
+      boosType: 0
+      BossScale: 0
+      BossMinExp: 0
+      BossMaxExp: 0
+      spawnFromUnderground: 0
+  - wait: 5
+    enemySpawns:
     - wait: 0
-      enemy: {fileID: 3697426553599540029, guid: 21efbcbbd4740a34ea66c7e824b3a308,
+      enemy: {fileID: 3697426553599540029, guid: f94524e41b15f3f479de5a5438256490,
         type: 3}
-      numberEnemy: 16
-      rate: 1
+      numberEnemy: 4
+      rate: 0
       customHealth: 0
-      customSpeed: 0
+      customSpeed: 1.05
       customAttackDmg: 0
       boosType: 0
-      BossScale: 1.02
-      BossMinExp: 25
-      BossMaxExp: 50
-    - wait: 12
-      enemy: {fileID: 3697426553599540029, guid: 4a7f9729baaa5af40b22163e4d610554,
+      BossScale: 0
+      BossMinExp: 0
+      BossMaxExp: 0
+      spawnFromUnderground: 0
+    - wait: 7
+      enemy: {fileID: 3697426553599540029, guid: b6e35ca08374d5c49aca0e7605899059,
         type: 3}
-      numberEnemy: 18
-      rate: 1
+      numberEnemy: 3
+      rate: 0
       customHealth: 0
-      customSpeed: 0
+      customSpeed: 1.05
       customAttackDmg: 0
       boosType: 0
-      BossScale: 1.001
-      BossMinExp: 25
-      BossMaxExp: 50
+      BossScale: 0
+      BossMinExp: 0
+      BossMaxExp: 0
+      spawnFromUnderground: 0
+    - wait: 7
+      enemy: {fileID: 3697426553599540029, guid: b6e35ca08374d5c49aca0e7605899059,
+        type: 3}
+      numberEnemy: 4
+      rate: 0
+      customHealth: 0
+      customSpeed: 1.05
+      customAttackDmg: 0
+      boosType: 0
+      BossScale: 0
+      BossMinExp: 0
+      BossMaxExp: 0
+      spawnFromUnderground: 0
+    - wait: 7
+      enemy: {fileID: 3697426553599540029, guid: 48c2c7078063c854b9def81f55d4a630,
+        type: 3}
+      numberEnemy: 3
+      rate: 0
+      customHealth: 0
+      customSpeed: 1.05
+      customAttackDmg: 0
+      boosType: 0
+      BossScale: 0
+      BossMinExp: 0
+      BossMaxExp: 0
+      spawnFromUnderground: 0
+  - wait: 5
+    enemySpawns:
     - wait: 0
+      enemy: {fileID: 3697426553599540029, guid: f94524e41b15f3f479de5a5438256490,
+        type: 3}
+      numberEnemy: 2
+      rate: 0
+      customHealth: 0
+      customSpeed: 1.1
+      customAttackDmg: 0
+      boosType: 0
+      BossScale: 0
+      BossMinExp: 0
+      BossMaxExp: 0
+      spawnFromUnderground: 0
+    - wait: 7
       enemy: {fileID: 3697426553599540029, guid: 76ba55c0b60bb254986de8615e038728,
         type: 3}
-      numberEnemy: 18
-      rate: 1
+      numberEnemy: 3
+      rate: 0
       customHealth: 0
-      customSpeed: 0
+      customSpeed: 1.1
       customAttackDmg: 0
       boosType: 0
-      BossScale: 1.5
-      BossMinExp: 99
-      BossMaxExp: 90
-    - wait: 15
-      enemy: {fileID: 3697426553599540029, guid: 21efbcbbd4740a34ea66c7e824b3a308,
+      BossScale: 0
+      BossMinExp: 0
+      BossMaxExp: 0
+      spawnFromUnderground: 0
+    - wait: 7
+      enemy: {fileID: 3697426553599540029, guid: 2395704e03c7ea248b4e120a0486406d,
         type: 3}
-      numberEnemy: 20
-      rate: 1
+      numberEnemy: 3
+      rate: 0
       customHealth: 0
-      customSpeed: 0
+      customSpeed: 1.1
       customAttackDmg: 0
       boosType: 0
-      BossScale: 1.0001
-      BossMinExp: 25
-      BossMaxExp: 50
+      BossScale: 0
+      BossMinExp: 0
+      BossMaxExp: 0
+      spawnFromUnderground: 0
+  - wait: 5
+    enemySpawns:
     - wait: 0
-      enemy: {fileID: 3697426553599540029, guid: 0014a555699f68f4ab300b16913c9299,
+      enemy: {fileID: 3697426553599540029, guid: 49722848e10ba4f47b48a025def64098,
         type: 3}
-      numberEnemy: 20
-      rate: 1
+      numberEnemy: 2
+      rate: 0
       customHealth: 0
-      customSpeed: 0
+      customSpeed: 1.1
       customAttackDmg: 0
       boosType: 0
-      BossScale: 1.0001
-      BossMinExp: 25
-      BossMaxExp: 50
+      BossScale: 0
+      BossMinExp: 0
+      BossMaxExp: 0
+      spawnFromUnderground: 0
+    - wait: 7
+      enemy: {fileID: 3697426553599540029, guid: 27ccc8cf8fcc1fb4780330f77675e0f6,
+        type: 3}
+      numberEnemy: 3
+      rate: 0
+      customHealth: 0
+      customSpeed: 1.1
+      customAttackDmg: 0
+      boosType: 0
+      BossScale: 0
+      BossMinExp: 0
+      BossMaxExp: 0
+      spawnFromUnderground: 0
+    - wait: 7
+      enemy: {fileID: 3697426553599540029, guid: 27ccc8cf8fcc1fb4780330f77675e0f6,
+        type: 3}
+      numberEnemy: 3
+      rate: 0
+      customHealth: 0
+      customSpeed: 1.1
+      customAttackDmg: 0
+      boosType: 0
+      BossScale: 0
+      BossMinExp: 0
+      BossMaxExp: 0
+      spawnFromUnderground: 0
   increaseEnemySpeedDifficultyRate: 0.05
   increaseEnemyAttackDifficultyRate: 0.1
   increaseEnemyHealthDifficultyRate: 0.1
@@ -128,4 +244,6 @@ MonoBehaviour:
   increaseEnemyWaitDifficultyRate: 0.2
   initialWaitAmount: 3
   level: 83
-  backgroundSprite: {fileID: 21300000, guid: 16084e46c1bd857498837807db7899ce, type: 3}
+  backgroundSprite: {fileID: 21300000, guid: e4c5537b2e955ad4a903c9c542f8218c, type: 3}
+  nightMode: 0
+  nightMultiplierFixedAmount: 2

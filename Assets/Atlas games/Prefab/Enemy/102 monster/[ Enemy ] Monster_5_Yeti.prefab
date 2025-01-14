@@ -328,6 +328,8 @@ MonoBehaviour:
   soundAttacksVol: 0.5
   soundAttacks:
   - {fileID: 8300000, guid: a64b5cfe6206b3949bd0c921d9e6f092, type: 3}
+  customNightMultiplier: 2
+  useCustomNightMultiplierOnly: 0
 --- !u!114 &1950496937
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -400,6 +402,8 @@ MonoBehaviour:
   delayChasePlayerWhenDetect: 0
   is_spine: 1
   skeletonAnimation: {fileID: 2611253575993491732}
+  customNightMultiplier: 2
+  useCustomNightMultiplier: 0
   magnet: 0
   magnetPos: {x: 0, y: 0, z: 0}
   magnetAttractionSpeed: 0
@@ -435,6 +439,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coinGiveMin: 3
   coinGiveMax: 8
+  customNightMultiplier: 2
+  useCustomNightMultiplierOnly: 0
 --- !u!114 &1950496935
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -449,6 +455,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   expMin: 3
   expMax: 6
+  customNightMultiplier: 2
+  useCustomNightMultiplierOnly: 0
 --- !u!61 &1950496934
 BoxCollider2D:
   m_ObjectHideFlags: 0

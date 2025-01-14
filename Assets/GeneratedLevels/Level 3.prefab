@@ -61,6 +61,7 @@ MonoBehaviour:
       BossScale: 1.599
       BossMinExp: 99
       BossMaxExp: 90
+      spawnFromUnderground: 0
   increaseEnemySpeedDifficultyRate: 0.05
   increaseEnemyAttackDifficultyRate: 0.1
   increaseEnemyHealthDifficultyRate: 0.1
@@ -69,3 +70,5 @@ MonoBehaviour:
   initialWaitAmount: 3
   level: 3
   backgroundSprite: {fileID: 21300000, guid: fdc33d5c7ce20604ab95d438c07656fb, type: 3}
+  nightMode: 0
+  nightMultiplierFixedAmount: 2
