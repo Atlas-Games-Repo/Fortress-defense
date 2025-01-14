@@ -12,28 +12,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1f3fcf54867e524aabbeb4290896422, type: 3}
   m_Name: CharacterEditor
   m_EditorClassIdentifier: 
-  enemyName: '[Enemy] Test Enemy'
+  enemyName: '[ Enemy ] Bat'
   smartEnemyGrounded:
     useGravity: 0
-    gravity: 50
-    walkSpeed: 1.5
+    gravity: 35
+    walkSpeed: 1
     attackType: 1
     startBehavior: 3
     spawnDelay: 1
-    health: 40
-    weaknessMultiplier: 10
-    strengthMultiplier: 0.113
-    weakness: 3
-    strength: 2
+    health: 105
+    weaknessMultiplier: 1
+    strengthMultiplier: 1
+    weakness: 0
+    strength: 0
   attakType: 1
   enemyMeleeAttack:
     targetLayer:
       serializedVersion: 2
       m_Bits: 256
-    radiusCheck: 1
+    radiusCheck: 0.5
     dealDamage: 20
     criticalPercent: 10
-    meleeRate: 1.5
+    meleeRate: 2
   enemyRangeAttack:
     aimTarget: 0
     aimTargetOffset: {x: 0, y: 0.5}
@@ -51,5 +51,5 @@ MonoBehaviour:
     damage: 30
     radiusDetectPlayer: 5
     onlyAttackTheFortrest: 1
-  expMin: 5
-  expMax: 8
+  expMin: 3
+  expMax: 6

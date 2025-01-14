@@ -3,7 +3,13 @@ guid: dc19d53a80f34464e8b99c362171e6b8
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - data: {fileID: 11400000, guid: b375ab648a098ff4cbec24ecfb1b5061, type: 2}
+  - emptySprite: {instanceID: 0}
+  - boostItemAnim: {instanceID: 0}
+  - boostButtonAnim: {instanceID: 0}
+  - TL_Prefab: {instanceID: 0}
+  - activeIcons: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

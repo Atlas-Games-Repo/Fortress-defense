@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3287378255312373438
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3287378255312373436}
+  - component: {fileID: 3287378255312373439}
+  m_Layer: 0
+  m_Name: AddressableManager-Loading
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3287378255312373436
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3287378255312373438}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.8730707, y: -0.5789437, z: -0.35214528}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3287378255312373439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3287378255312373438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47f822c7590b99248b4655625e916de8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bundles:
+    asset_bundle:
+      m_AssetGUID: d81f2bddd8efd5749b0a150d6d1adc0e
+      m_SubObjectName: 
+      m_SubObjectType: 
+    scene_name: Logo atlas
+    percent: 0
+    is_complete: 0
+    root: Canvas
+    obj: {fileID: 0}
+    is_root_world: 0
+    has_depends: 1
+    dependence: Flashscene
+    dependence_type: FlashScene

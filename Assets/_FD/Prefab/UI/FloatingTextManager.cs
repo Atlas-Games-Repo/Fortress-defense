@@ -42,6 +42,7 @@ public class FloatingTextManager : MonoBehaviour {
 
         floatingText.transform.SetParent(MenuManager.Instance.transform, false);
         floatingText.transform.position = _position;
+		floatingText.transform.SetAsFirstSibling();
 
         var _FloatingText = floatingText.GetComponent<FloatingText>();
         _FloatingText.SetText(message, textColor, localOffset + ownerPosition, fontSize);

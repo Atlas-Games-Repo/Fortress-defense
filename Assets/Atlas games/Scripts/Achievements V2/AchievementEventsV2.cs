@@ -50,6 +50,8 @@ public class AchievementEventsV2
     public void Update_status(TrophyStatus new_status)
     {
         model.status = new_status;
+        if (new_status == TrophyStatus.ACHIEVED)
+            AchievementStatus.self.models.Enqueue(model);
         BasePlayerPrefs<AchievementModel>.Update(model._id, model);
     }
 }

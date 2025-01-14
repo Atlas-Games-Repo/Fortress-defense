@@ -10,6 +10,9 @@ public class Character : MonoBehaviour, IListener, ICanTakeDamage
     }
 
    
+    public bool IEnabled() {
+        return this.enabled;
+    }
     public virtual void Update()
     {
     }

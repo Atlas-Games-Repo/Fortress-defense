@@ -31,6 +31,8 @@ public class Level : MonoBehaviour
 
     public LeveType levelType = LeveType.MISSION;
     public Events _event;
+
+    public bool nightMode;
     void Start()
     {
         switch (levelType)
@@ -133,6 +135,7 @@ public class Level : MonoBehaviour
     {
         GlobalValue.levelPlaying = level;
         GlobalValue.levelType = levelType;
+       // GlobalValue.NightMode = nightMode;
         if (levelType == LeveType.EVENT)
         {
             _Event.Add(_event.level, _event);

@@ -245,13 +245,13 @@ public class Player_Archer : Enemy, ICanTakeDamage, IListener
         AnimSetTrigger("hit");
 
         if (knockDownRagdoll)
-            print("");
+            {}
         else if (pushBack)
             StartCoroutine(PushBack(force));
         else if (shock)
             StartCoroutine(Shock());
         else
-            print("");
+            {}
     }
 
     public override void KnockBack(Vector2 force, float stunningTime = 0)

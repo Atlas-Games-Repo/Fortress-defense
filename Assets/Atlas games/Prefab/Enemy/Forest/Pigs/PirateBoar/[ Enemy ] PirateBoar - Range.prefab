@@ -28,7 +28,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3697426553599540031}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1315889781
 GameObject:
@@ -58,7 +58,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3697426553599540031}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &666363926386282312
 GameObject:
@@ -534,7 +534,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3697426553599540031}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3697426553599540029
 GameObject:
@@ -556,7 +556,7 @@ GameObject:
   - component: {fileID: 1950496934}
   - component: {fileID: 1950496933}
   m_Layer: 10
-  m_Name: PirateBoar
+  m_Name: '[ Enemy ] PirateBoar - Range'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -573,12 +573,12 @@ Transform:
   m_LocalPosition: {x: -5.63, y: -2.64, z: 0}
   m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_Children:
+  - {fileID: 5302841712264848057}
   - {fileID: 2337377529363514514}
   - {fileID: 3991322440258641104}
   - {fileID: 781253066}
   - {fileID: 7941003531808724328}
   - {fileID: 1315889782}
-  - {fileID: 5302841712264848057}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -655,8 +655,8 @@ MonoBehaviour:
     m_Bits: 256
   checkPoint: {fileID: 781253066}
   detectDistance: 5
-  width: 2.65
-  numberLineCheck: 5
+  width: 1
+  numberLineCheck: 3
   radius: 3
   circleOffset: {x: 0, y: 0}
   size: {x: 5, y: 2}
@@ -675,10 +675,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradedCharacterID: {fileID: 0}
   enemyType: 0
+  is_boss: 0
   useGravity: 0
   gravity: 35
   walkSpeed: 1
-  attackType: 1
+  attackType: 2
   startBehavior: 3
   dieBehavior: 0
   hitBehavior: 0
@@ -694,8 +695,14 @@ MonoBehaviour:
   explosionFX: []
   randomHitPoint: {x: 0.2, y: 0.2}
   randomBloodPuddlePoint: {x: 0.5, y: 0.25}
-  healthBarOffset: {x: 0, y: 1.5}
+  healthBarOffset: {x: 0, y: 1}
+  AutoHealthBarOffset: 0.1
+  IsAutoHealthBar: 1
   enemyState: 0
+  weaknessMultiplier: 1
+  strengthMultiplier: 1
+  weakness: 0
+  strength: 0
   canBeFreeze: 1
   dieFrozenFX: {fileID: 0}
   canBeBurn: 1
@@ -716,6 +723,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: d828c6f696d736348b98d90b6aa3fcb9, type: 3}
   soundDieBlowVol: 0.5
   soundDieBlow: []
+  BossMusic: {fileID: 0}
   soundSpawnVol: 0.5
   soundSpawn: []
   currentHealth: 0
@@ -723,9 +731,41 @@ MonoBehaviour:
   checkTarget: {fileID: 0}
   isPlayerDetected: 0
   delayChasePlayerWhenDetect: 0
+  is_spine: 0
+  skeletonAnimation: {fileID: 0}
+  magnet: 0
+  magnetPos: {x: 0, y: 0, z: 0}
+  magnetAttractionSpeed: 0
+  minMagnetDistance: 1
   velocity: {x: 0, y: 0, z: 0}
   controller: {fileID: 0}
   is_targeted: 0
+  spawnFromUnderground: 0
+  undergroundSandPile: {fileID: 2967936131171522836, guid: a8798ad5383bdbd4ca79e8cee187891a,
+    type: 3}
+  characterSprites:
+  - {fileID: 6343547984667115282}
+  - {fileID: 6343547984428887902}
+  - {fileID: 6343547984679671517}
+  - {fileID: 3778282412239749356}
+  - {fileID: 6343547983653968434}
+  - {fileID: 8435222372069074741}
+  - {fileID: 6190347147611480223}
+  - {fileID: 4212933280593408566}
+  - {fileID: 7179403687438483915}
+  - {fileID: 260163265852865645}
+  - {fileID: 3591686137885948522}
+  - {fileID: 4102153822890833411}
+  undergroundPileScale: 1.5
+  climbingTime: 1.7
+  maskYScale: 2.5
+  climbDepth: 1.5
+  xOffset: 0
+  secondaryHeight: 1.5
+  xDistanceFromEnemy: 1.5
+  holeAnimationTime: 0.5
+  warriorTag: Warrior
+  shadow: {fileID: 8835841617553682194}
 --- !u!114 &8219785029927060393
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1349,7 +1389,7 @@ Transform:
   - {fileID: 2153745506271069100}
   - {fileID: 7912845564158253499}
   m_Father: {fileID: 3697426553599540031}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6343547984667115282
 SpriteRenderer:
@@ -1545,7 +1585,7 @@ Transform:
   m_LocalScale: {x: 2, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3697426553599540031}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2101254386559981091
 SpriteRenderer:
@@ -1610,35 +1650,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: target
       objectReference: {fileID: 0}
-    - target: {fileID: 3457596577293859471, guid: 4c79c1b537c6fcf4da407c934d03d329,
+    - target: {fileID: 5302841713383904977, guid: 4c79c1b537c6fcf4da407c934d03d329,
         type: 3}
-      propertyPath: m_Enabled
+      propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5302841713383904977, guid: 4c79c1b537c6fcf4da407c934d03d329,
         type: 3}
-      propertyPath: m_RootOrder
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5302841713383904977, guid: 4c79c1b537c6fcf4da407c934d03d329,
-        type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.6
+      value: 1.6
       objectReference: {fileID: 0}
     - target: {fileID: 5302841713383904977, guid: 4c79c1b537c6fcf4da407c934d03d329,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.6
+      value: 1.6
       objectReference: {fileID: 0}
     - target: {fileID: 5302841713383904977, guid: 4c79c1b537c6fcf4da407c934d03d329,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.86
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5302841713383904977, guid: 4c79c1b537c6fcf4da407c934d03d329,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.33
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5302841713383904977, guid: 4c79c1b537c6fcf4da407c934d03d329,
         type: 3}

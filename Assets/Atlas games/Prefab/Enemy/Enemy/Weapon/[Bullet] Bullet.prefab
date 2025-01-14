@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1793606161367928125}
   - component: {fileID: 673716736475903323}
   m_Layer: 9
-  m_Name: '[ENEMY] Bullet'
+  m_Name: '[Bullet] Bullet'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -105,10 +105,12 @@ MonoBehaviour:
   Damage: 30
   DestroyEffect: {fileID: 0}
   pointToGivePlayer: 100
-  timeToLive: 3
+  timeToLive: 0.8
   newBulletImage: {fileID: 0}
-  soundHitEnemy: {fileID: 0}
-  soundHitEnemyVolume: 0.5
+  fire_sound: {fileID: 0}
+  fire_sound_volume: 0.5
+  soundHitEnemy: {fileID: 8300000, guid: d09850c9a45d18a4795aeacb4878e43e, type: 3}
+  soundHitEnemyVolume: 0.06
   soundHitNothing: {fileID: 0}
   soundHitNothingVolume: 0.5
   ExplosionObj: {fileID: 0}

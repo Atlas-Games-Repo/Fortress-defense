@@ -14,6 +14,13 @@ TagManager:
   - BackGroundLEM
   - DebugText
   - CureAnimation
+  - Zone
+  - PointerPlacer
+  - Pointer
+  - StatusCanvas
+  - UndergroundSpawn
+  - Warrior
+  - LogSpawnPosition
   layers:
   - Default
   - TransparentFX

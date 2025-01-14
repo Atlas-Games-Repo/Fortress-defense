@@ -42,6 +42,7 @@ public class AchievementTasksV2 : BasePlayerPrefs<AchievementModel>
             foreach (AchievementEventsV2 item in achievements)
             {
                 _ = item.IsPassed;
+                yield return new WaitForEndOfFrame(); // performance upgrade
             }
             yield return new WaitForSeconds(ListenerTickSeconds);
         }

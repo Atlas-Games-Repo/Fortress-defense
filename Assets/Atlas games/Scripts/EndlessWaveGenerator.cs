@@ -1,7 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using RTLTMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 public class EndlessWaveGenerator : LevelEnemyManager, IListener
@@ -26,19 +28,51 @@ public class EndlessWaveGenerator : LevelEnemyManager, IListener
     public float increaseEnemyWaitDifficultyRate = 0.2f;
     private float[] _enemyCounts;
     public float initialWaitAmount = 3;
+    public LevelEnemyManager level_enemy_manager;
     [HideInInspector] public int waveCount;
+    public GameObject WaveCountUI;
 
-    int totalEnemy, currentSpawn;
+    int _totalEnemy, _currentSpawn;
 
-    void Start()
-    {
-
+    private void Start() {
         if (GameLevelSetup.Instance)
         {
-            if (GameLevelSetup.Instance.type() == LevelWave.LevelType.Endless)
-            {
-                GetComponent<LevelEnemyManager>().enabled = false;
+        levelType = GameLevelSetup.Instance.type();
+            if (levelType == LevelWave.LevelType.Normal) {
+                this.enabled = false;
+                return;
             }
+            EnemyWaves = GameLevelSetup.Instance.GetLevelWave();
+        }
+
+        //calculate number of enemies
+        totalEnemy = 0;
+        for (int i = 0; i < EnemyWaves.Length; i++)
+        {
+            for (int j = 0; j < EnemyWaves[i].enemySpawns.Length; j++)
+            {
+                var enemySpawn = EnemyWaves[i].enemySpawns[j];
+                for (int k = 0; k < enemySpawn.numberEnemy; k++)
+                {
+                    totalEnemy++;
+                }
+            }
+        }
+
+        currentSpawn = 0;
+    }
+    void Awake()
+    {
+        if (GameLevelSetup.Instance)
+        {
+        levelType = GameLevelSetup.Instance.type();
+            if (levelType == LevelWave.LevelType.Normal) {
+                this.enabled = false;
+                return;
+            } else {
+                WaveCountUI.SetActive(true);
+            }
+
             enemiesList = GameLevelSetup.Instance.EndlessInitialWave();
             increaseEnemySpeedDifficultyRate = GameLevelSetup.Instance.IncreaseEnemySpeedDifficultyRate();
             increaseEnemyAttackDifficultyRate = GameLevelSetup.Instance.IncreaseEnemyAttackDifficultyRate();
@@ -46,7 +80,6 @@ public class EndlessWaveGenerator : LevelEnemyManager, IListener
             increaseEnemyAmountDifficultyRate = GameLevelSetup.Instance.IncreaseEnemyAmountDifficultyRate();
             increaseEnemyWaitDifficultyRate = GameLevelSetup.Instance.IncreaseEnemyWaitDifficultyRate();
             initialWaitAmount = GameLevelSetup.Instance.InitialWaitAmount();
-
         }
 
         _enemies = new GameObject[enemiesList.Length];
@@ -56,11 +89,7 @@ public class EndlessWaveGenerator : LevelEnemyManager, IListener
             _enemyCounts[a] = enemiesList[a].initialCount;
             _enemies[a] = enemiesList[a].enemyObject;
         }
-
     }
-
-
-
 
 
     // generate a new wave harder than last
@@ -91,29 +120,29 @@ public class EndlessWaveGenerator : LevelEnemyManager, IListener
             newSpawn.wait = 1 / ((waveCount + 1) * increaseEnemyWaitDifficultyRate);
             newSpawn.customHealth =
                 Convert.ToInt32(Mathf.Round(_enemies[i].GetComponent<SmartEnemyGrounded>().health *
-                                            waveCount * increaseEnemyHealthDifficultyRate));
+                                            (1+(waveCount * increaseEnemyHealthDifficultyRate))));
             newSpawn.customSpeed =
                 Convert.ToInt32(Mathf.Round(_enemies[i].GetComponent<SmartEnemyGrounded>().walkSpeed *
-                                            waveCount * increaseEnemySpeedDifficultyRate));
+                                            (1+(waveCount * increaseEnemySpeedDifficultyRate))));
 
 
             var rangeAttack = _enemies[i].GetComponent<EnemyRangeAttack>();
             if (rangeAttack)
             {
-                newSpawn.customAttackDmg += (waveCount * increaseEnemyAttackDifficultyRate + 1) * rangeAttack.damage;
+                newSpawn.customAttackDmg += (1+(waveCount * increaseEnemyAttackDifficultyRate)) * rangeAttack.damage;
             }
 
             var meleeAttack = _enemies[i].GetComponent<EnemyMeleeAttack>();
             if (meleeAttack)
             {
                 newSpawn.customAttackDmg +=
-                    (waveCount * increaseEnemyAttackDifficultyRate + 1) * meleeAttack.dealDamage;
+                    (1+(waveCount * increaseEnemyAttackDifficultyRate)) * meleeAttack.dealDamage;
             }
 
             var throwAttack = _enemies[i].GetComponent<EnemyThrowAttack>();
             if (throwAttack)
             {
-                newSpawn.customAttackDmg += (waveCount * increaseEnemyAttackDifficultyRate + 1) * throwAttack.damage;
+                newSpawn.customAttackDmg += (1+(waveCount * increaseEnemyAttackDifficultyRate)) * throwAttack.damage;
             }
 
 
@@ -122,6 +151,7 @@ public class EndlessWaveGenerator : LevelEnemyManager, IListener
 
         // set wave data ready for usage in LevelEnemyManager.cs for creation
         waveCount++;
+        WaveCountUI.transform.GetChild(0).GetComponent<Text>().text = $"wave {waveCount}";
         wave.wait = initialWaitAmount;
         wave.enemySpawns = enemySpawn.ToArray();
     }
@@ -157,6 +187,10 @@ public class EndlessWaveGenerator : LevelEnemyManager, IListener
                     GameObject _temp = Instantiate(enemySpawn.enemy,
                         (Vector2)spawnPositions[Random.Range(0, spawnPositions.Length)].position,
                         Quaternion.identity) as GameObject;
+                    if (enemySpawn.spawnFromUnderground)
+                    {
+                        _temp.GetComponent<SmartEnemyGrounded>().StartClimbing();
+                    }
                     var isEnemy = (Enemy)_temp.GetComponent(typeof(Enemy));
                     if (isEnemy != null)
                     {
@@ -181,17 +215,6 @@ public class EndlessWaveGenerator : LevelEnemyManager, IListener
                             {
                                 throwAttack.damage = enemySpawn.customAttackDmg;
                             }
-                        }
-
-                        var rangeAttack1 = _temp.GetComponent<EnemyRangeAttack>();
-                        if (rangeAttack1)
-                            rangeAttack1.bullet = bullet;
-                        var meleeAttack1 = _temp.GetComponent<EnemyMeleeAttack>();
-                        var throwAttack1 = _temp.GetComponent<EnemyThrowAttack>();
-                        if (throwAttack1)
-                        {
-                            throwAttack1.FX_Blow = FX_Blow;
-                            throwAttack1.FX_Smoke = FX_Smoke;
                         }
 
                         if (enemySpawn.boosType != EnemySpawn.isBoss.NONE)
@@ -222,8 +245,10 @@ public class EndlessWaveGenerator : LevelEnemyManager, IListener
                     //_temp.transform.localPosition = Vector2.zero;
                     listEnemySpawned.Add(_temp);
 
-                    currentSpawn++;
-                    MenuManager.Instance.UpdateEnemyWavePercent(currentSpawn, totalEnemy);
+                
+                   
+                    _currentSpawn++;
+                    MenuManager.Instance.UpdateEnemyWavePercent(_currentSpawn, _totalEnemy);
 
                     yield return new WaitForSeconds(enemySpawn.rate);
                 }
@@ -235,11 +260,9 @@ public class EndlessWaveGenerator : LevelEnemyManager, IListener
             }
 
             EnemyWaves = new EnemyWave[0];
-
-
-
         }
     }
+
     void Update()
     {
         if (EnemyWaves.Length == 0)
@@ -258,6 +281,4 @@ public class EndlessWaveGenerator : LevelEnemyManager, IListener
 
         return false;
     }
-
-
 }

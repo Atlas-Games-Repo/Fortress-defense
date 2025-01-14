@@ -1,0 +1,128 @@
+name: Unity Build Addressable
+
+on:
+    workflow_dispatch:
+        inputs:
+            customParameters:
+                description: "build custom parameters"
+                required: false
+                default: ""
+            build_type:
+                description: "type of content build: update_build/complete_build"
+                required: true
+                default: "update_build"
+
+### Refer to https://game.ci/docs/github/getting-started
+jobs:
+    build:
+        name: Build for ${{ matrix.targetPlatform }}
+        runs-on:
+            group: Default
+            labels: ubuntu
+        strategy:
+            fail-fast: false
+            matrix:
+                targetPlatform:
+                    - iOS
+                    - WebGL
+        steps:
+            # - name: Free Disk Space (Ubuntu)
+            #   uses: jlumbroso/free-disk-space@main
+            #   with:
+            #       dotnet: false
+            - uses: actions/checkout@v4
+              with:
+                  lfs: true
+            - uses: actions/cache@v3
+              with:
+                  path: Library
+                  key: Library-${{ matrix.targetPlatform }}
+            - uses: game-ci/unity-builder@v4
+              env:
+                  UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+                  UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+                  UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+              with:
+                  buildMethod: UnityBuilderAction.BuildScript.${{ inputs.build_type }}
+                  targetPlatform: ${{ matrix.targetPlatform }}
+            - uses: actions/upload-artifact@v3
+              with:
+                  name: ContentBuild-${{ matrix.targetPlatform }}
+                  path: Bundles
+    buildAndroid:
+        name: Build for Android
+        runs-on:
+            group: Default
+            labels: ubuntu
+        steps:
+            - uses: actions/checkout@v4
+              with:
+                  lfs: true
+            - uses: actions/cache@v3
+              with:
+                  path: Library
+                  key: Library-Android
+            - uses: game-ci/unity-builder@v4
+              env:
+                  UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+                  UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+                  UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+              with:
+                  buildMethod: UnityBuilderAction.BuildScript.${{ inputs.build_type }}
+                  targetPlatform: Android
+                  androidKeystoreName: user.keystore
+                  androidKeystoreBase64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+                  androidKeystorePass: ${{ secrets.ANDROID_KEYSTORE_PASS }}
+                  androidKeyaliasName: ${{ secrets.ANDROID_KEYALIAS_NAME }}
+                  androidKeyaliasPass: ${{ secrets.ANDROID_KEYALIAS_PASS }}
+            - uses: actions/upload-artifact@v3
+              with:
+                  name: ContentBuild-Android
+                  path: Bundles
+    buildForMac:
+        name: Build for StandaloneOSX
+        runs-on: macos-latest
+        steps:
+            - uses: actions/checkout@v4
+              with:
+                  lfs: true
+            - uses: actions/cache@v3
+              with:
+                  path: Library
+                  key: Library-StandaloneOSX
+            - uses: game-ci/unity-builder@v4
+              env:
+                  UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+                  UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+                  UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+              with:
+                  buildMethod: UnityBuilderAction.BuildScript.${{ inputs.build_type }}
+                  targetPlatform: StandaloneOSX
+            - uses: actions/upload-artifact@v3
+              with:
+                  name: ContentBuild-StandaloneOSX
+                  path: Bundles
+    buildForWindows:
+        name: Build for StandaloneWindows
+        runs-on: windows-2022
+        steps:
+            - uses: actions/checkout@v4
+              with:
+                  lfs: true
+            - uses: actions/cache@v3
+              with:
+                  path: Library
+                  key: Library-StandaloneWindows
+            - uses: game-ci/unity-builder@v4
+              env:
+                  UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+                  UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+                  UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+              with:
+                  buildMethod: UnityBuilderAction.BuildScript.${{ inputs.build_type }}
+                  targetPlatform: StandaloneWindows
+                  customParameters: "${{ inputs.customParameters }}"
+            - uses: actions/upload-artifact@v3
+              with:
+                  name: ContentBuild-StandaloneWindows
+                  path: Bundles

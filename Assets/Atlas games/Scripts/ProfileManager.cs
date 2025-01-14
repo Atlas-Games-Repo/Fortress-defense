@@ -27,9 +27,9 @@ public class ProfileManager : MonoBehaviour
     {
         while (true)
         {
-            fetchData();
             User.Get_User_Eeventually();
             yield return new WaitForSeconds(updateDelaySeconds);
+            fetchData();
         }
     }
     public void fetchData()

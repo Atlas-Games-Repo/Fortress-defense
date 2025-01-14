@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -34,20 +35,27 @@ public class CameraController : MonoBehaviour, IKeyboardCall
         target = transform.position;
         target.x = Mathf.Clamp(transform.position.x, limitLeft + CameraHalfWidth, limitRight - CameraHalfWidth);
         allowWorking = true;
+        Move();
     }
 
     public void Move()
     {
-        if (is_left)
+        float left_camera = Camera.main.ScreenToWorldPoint(Vector2.zero).x;
+        float right_camera = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height)).x;
+        right_camera = Mathf.Abs(limitRight) - Mathf.Abs(right_camera);
+        left_camera = Mathf.Abs(limitLeft) - Mathf.Abs(left_camera);
+        if (is_left) // is moving to right
         {
+            target_right.x = transform.position.x + right_camera;
             target = target_right;
-            CameraMove.sprite = Left;
+            CameraMove.sprite = Right;
             is_left = false;
         }
-        else
+        else // is moving to left
         {
+            target_left.x = transform.position.x - left_camera;
             target = target_left;
-            CameraMove.sprite = Right;
+            CameraMove.sprite = Left;
             is_left = true;
         }
     }

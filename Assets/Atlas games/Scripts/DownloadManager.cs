@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,7 +11,7 @@ public class DownloadManager : MonoBehaviour
     public string CONNECTING, CHECKING_FOR_DOWNLOAD, DOWNLOADING;
     public Slider downloadSlider;
     public TextMeshProUGUI downloading;
-    [ReadOnly] public string pattern = @"/(.[a-zA-Z0-9]+.assetbundle)";
+    public string pattern = @"/(.[a-zA-Z0-9]+.assetbundle)";
     private int itter = 0;
 
     public async void Start()
@@ -26,9 +24,9 @@ public class DownloadManager : MonoBehaviour
         {
             assets = await APIManager.instance.Check_for_updates();
         }
-        catch (System.Exception e)
+        catch (System.Exception)
         {
-            APIManager.instance.RunStatus(e.Message, APIManager.instance.ErrorColor);
+            APIManager.instance.RunStatus(NetworkStatusError.UNKNOWN_ERROR, APIManager.instance.ErrorColor);
             User.Token = "";
             await Task.Delay(3 * 1000);
             APIManager.instance.LoadAsynchronously("Login");
@@ -42,7 +40,7 @@ public class DownloadManager : MonoBehaviour
         });
         downloading.text = CHECKING_FOR_DOWNLOAD;
         RegexOptions options = RegexOptions.Multiline;
-
+        Add_target_platform(ref pattern);
         foreach (var item in assets.list)
         {
             itter++;
@@ -51,6 +49,7 @@ public class DownloadManager : MonoBehaviour
             {
                 file_path = m.Groups[1].Value;
             }
+            if (file_path == "") continue;
             if (!File.Exists(APIManager.instance.GetFilePath(file_path)))
             {
                 await APIManager.instance.DownloadUpdate(file_path, item, progress);
@@ -58,4 +57,26 @@ public class DownloadManager : MonoBehaviour
         }
         StartCoroutine(APIManager.instance.LoadAsynchronously());
     }
+    public void Add_target_platform(ref string pattern, int index = 2)
+    {
+#if UNITY_ANDROID
+        pattern = pattern.Insert(index, "Android");
+#endif
+#if UNITY_WEBGL
+        pattern = pattern.Insert(index, "WebGL");
+#endif
+#if UNITY_STANDALONE_OSX
+        pattern = pattern.Insert(index, "StandaloneOSX");
+#endif
+#if UNITY_IOS
+        pattern = pattern.Insert(index, "iOS");
+#endif
+#if UNITY_STANDALONE_WIN && !UNITY_64 
+        pattern = pattern.Insert(index, "StandaloneWindows");
+#endif
+#if UNITY_STANDALONE && UNITY_64
+        pattern = pattern.Insert(index, "StandaloneWindows64");
+#endif
+    }
+
 }

@@ -22,6 +22,9 @@ public class RotateAround : MonoBehaviour, IListener {
         //		throw new System.NotImplementedException ();
     }
 
+    public bool IEnabled() {
+        return this.enabled;
+    }
     public void ISuccess()
     {
         //		throw new System.NotImplementedException ();

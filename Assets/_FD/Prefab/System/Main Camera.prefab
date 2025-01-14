@@ -10,12 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 2418363519264089235}
   - component: {fileID: 2418363519264089232}
-  - component: {fileID: 2418363519264089233}
   - component: {fileID: 2418363519264089246}
   - component: {fileID: 2418363519264089247}
   - component: {fileID: 2978606639849285453}
   - component: {fileID: 44947825}
-  m_Layer: 0
+  - component: {fileID: 4207485624955214532}
+  m_Layer: 2
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -79,14 +79,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!92 &2418363519264089233
-Behaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2418363519264089244}
-  m_Enabled: 1
 --- !u!124 &2418363519264089246
 Behaviour:
   m_ObjectHideFlags: 0
@@ -129,7 +121,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9134af27b4272b945b62a275325085c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  limitLeft: -13.4
-  limitRight: 4.96
+  limitLeft: -13
+  limitRight: 5
   moveSpeed: 5
   distanceScale: 2
+  target_right: {x: -10, y: -0.4, z: -10}
+  target_left: {x: -1, y: -0.4, z: -10}
+  allowTouch: 0
+  is_left: 1
+  CameraMove: {fileID: 0}
+  Left: {fileID: 21300000, guid: bf710c8af538bd64aa1e1f3cb45095f3, type: 3}
+  Right: {fileID: 21300000, guid: 6bb40f35729e892479554e56391679a6, type: 3}
+--- !u!114 &4207485624955214532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2418363519264089244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da10bea9961f30747b805f311ce95c02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

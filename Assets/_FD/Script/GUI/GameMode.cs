@@ -111,7 +111,7 @@ public class GameMode : MonoBehaviour
     public void ResetDATA()
     {
         PlayerPrefs.DeleteAll();
-        UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+        Application.Quit();
     }
 
     void OnGUI()

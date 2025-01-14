@@ -11,31 +11,26 @@ on:
 ### Refer to https://game.ci/docs/github/getting-started
 jobs:
     buildForWindows:
-        name: Build for ${{ matrix.targetPlatform }}
-        runs-on: windows-2019
-        strategy:
-            fail-fast: false
-            matrix:
-                targetPlatform:
-                    - StandaloneWindows
-                    - StandaloneWindows64
+        name: Build for StandaloneWindows
+        runs-on: windows-2022
         steps:
-            - uses: actions/checkout@v3
+            - uses: actions/checkout@v4
               with:
                   lfs: true
             - uses: actions/cache@v3
               with:
                   path: Library
-                  key: Library-${{ matrix.targetPlatform }}
-            - uses: game-ci/unity-builder@v2
+                  key: Library-StandaloneWindows
+            - uses: game-ci/unity-builder@v4
               env:
                   UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
                   UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
                   UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
               with:
-                  targetPlatform: ${{ matrix.targetPlatform }}
+                #   buildMethod: UnityBuilderAction.BuildScript.Build
+                  targetPlatform: StandaloneWindows
                   customParameters: "${{ inputs.customParameters }}"
             - uses: actions/upload-artifact@v3
               with:
-                  name: Build-${{ matrix.targetPlatform }}
+                  name: Build-StandaloneWindows
                   path: build
